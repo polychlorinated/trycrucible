@@ -1,0 +1,63 @@
+---
+import LegalPage from "../components/LegalPage.astro";
+import type { LegalBlock } from "../lib/legal-types";
+
+const blocks: LegalBlock[] = [
+  {
+    type: "h2",
+    text: "What we collect",
+  },
+  {
+    type: "ul",
+    items: [
+      "Account data: your email address (used for sign-in codes).",
+      "Business data: your business name, industry, website URL, and your answers to our brand questionnaire. We analyze the public content of the website you provide to build your brand voice profile.",
+      "Recordings and transcripts: videos you record in the app, their transcripts, and the written content drafts generated from them.",
+      "Social publishing data: when you connect your LinkedIn account, we store the list of accounts you connected through our publishing provider (Upload-Post) and correlate them to your profile. We never see your social media passwords.",
+    ],
+  },
+  {
+    type: "h2",
+    text: "How your content is processed",
+  },
+  {
+    type: "ul",
+    items: [
+      "Transcription: your recordings are transcribed by Deepgram (<a href=\"https://deepgram.com/privacy\">deepgram.com/privacy</a>).",
+      "Content generation: transcripts and your brand profile are processed by Anthropic’s Claude API (<a href=\"https://anthropic.com/privacy\">anthropic.com/privacy</a>) and DeepSeek V4 Flash (deepseek.com) to draft captions and posts. API data is not used to train models per Anthropic’s commercial terms.",
+      "Social intelligence: with your explicit approval, publicly available social media and web content from your tracked competitors, topics, and thought leaders is accessed via Tavily and Apify to surface content insights and green space opportunities (<a href=\"https://tavily.com/privacy\">tavily.com/privacy</a>, <a href=\"https://apify.com/privacy\">apify.com/privacy</a>).",
+      "Storage: recordings, transcripts, and drafts are stored with Supabase in your account’s private storage.",
+      "Publishing: content you choose to publish is sent to our publishing provider (Upload-Post), which posts it to the LinkedIn account you connected.",
+      "Export and webhook delivery: when you request a download or send content to a webhook URL you configure, the selected video and text files are made available via time-limited signed URLs or posted to that URL. We do not control the webhook destination.",
+    ],
+  },
+  {
+    type: "p",
+    text: "We do not sell your data. We do not use your content for advertising.",
+  },
+  {
+    type: "h2",
+    text: "Data retention and deletion",
+  },
+  {
+    type: "p",
+    text: "Your content is kept until you delete it. Deleting your account (Settings → Delete account) permanently removes your profile, business data, recordings, transcripts, drafts, and stored tokens. Published posts remain on the social platforms where you published them.",
+  },
+  {
+    type: "h2",
+    text: "Contact",
+  },
+  {
+    type: "p",
+    text: "<a href=\"mailto:hello@trycrucible.com\">hello@trycrucible.com</a>",
+  },
+];
+---
+
+<LegalPage
+  title="Privacy Policy"
+  description="How Crucible collects, processes, stores, and deletes your data."
+  updated="Last updated: June 13, 2026"
+  intro="Crucible (“we”) helps business owners create social media and blog content from short video recordings. This policy explains what we collect and how it is used."
+  blocks={blocks}
+/>

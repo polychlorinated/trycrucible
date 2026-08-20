@@ -1,0 +1,58 @@
+---
+import LegalPage from "../components/LegalPage.astro";
+import type { LegalBlock } from "../lib/legal-types";
+
+const blocks: LegalBlock[] = [
+  {
+    type: "h2",
+    text: "1. What Are Trackers?",
+  },
+  {
+    type: "p",
+    text: "Trackers are small data files or scripts placed on your browser or device when you visit websites. They help websites remember login states, analyze performance, and ensure platform security.",
+  },
+  {
+    type: "h2",
+    text: "2. Trackers We Use & Why",
+  },
+  {
+    type: "p",
+    text: "We only deploy Trackers necessary for authentication, secure checkout, and product diagnostics. We do not run third-party advertising cookies or sell user tracking data.",
+  },
+  {
+    type: "ul",
+    items: [
+      "Strictly Necessary (Essential): Supabase Auth stores encrypted session tokens in local storage/cookies so you stay logged in securely as you navigate the app. Stripe sets fraud detection and session identifiers when you access billing and checkout pages (<a href=\"https://stripe.com/privacy\">stripe.com/privacy</a>).",
+      "Performance & Product Analytics: PostHog collects product analytics (page views, button clicks, feature usage) across web and mobile sessions to identify software bugs and workflow friction (<a href=\"https://posthog.com/privacy\">posthog.com/privacy</a>). Vercel Analytics measures web page performance, loading latencies, and technical web vitals (<a href=\"https://vercel.com/legal/privacy-policy\">vercel.com/legal/privacy-policy</a>).",
+    ],
+  },
+  {
+    type: "h2",
+    text: "3. How to Manage Your Tracker Preferences",
+  },
+  {
+    type: "ul",
+    items: [
+      "Browser Settings: Most browsers allow you to block or delete cookies via your settings menu (e.g., Chrome, Safari, Firefox, Edge).",
+      "Device Settings: On mobile devices, you can adjust device advertising and tracking preferences in your OS settings.",
+      "Do Not Track: Note that clearing browser local storage will log you out of your active Crucible session.",
+    ],
+  },
+  {
+    type: "h2",
+    text: "4. Updates & Contact Information",
+  },
+  {
+    type: "p",
+    text: "We may update this Cookie Policy periodically to reflect changes in our tech stack. Please review this page regularly. If you have questions about our use of tracking technologies, please contact: Polychlorinated Ventures LLC DBA Crucible, Email: <a href=\"mailto:hello@trycrucible.com\">hello@trycrucible.com</a>.",
+  },
+];
+---
+
+<LegalPage
+  title="Cookie & Tracking Policy"
+  description="How Crucible uses cookies and similar tracking technologies."
+  updated="Effective Date: August 6, 2026"
+  intro="This Cookie Policy describes how Polychlorinated Ventures LLC DBA Crucible (“we,” “us,” or “our”) uses cookies and similar tracking technologies (collectively, “Trackers”) on our web application (crucible-generator.vercel.app, trycrucible.com) and associated services."
+  blocks={blocks}
+/>

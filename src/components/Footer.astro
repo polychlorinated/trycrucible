@@ -1,12 +1,11 @@
 ---
-import Flame from "./Flame.astro";
 ---
 
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div class="footer-brand">
       <a class="brand" href="#top" aria-label="Crucible — back to top">
-        <span class="brand-mark"><Flame /></span>
+        <span class="brand-mark"><img src="/flame-icon.png" alt="" width="32" height="32" /></span>
         <span class="brand-name">Crucible</span>
       </a>
       <p class="tagline">Turn raw brain dumps into a week of content</p>
@@ -14,10 +13,10 @@ import Flame from "./Flame.astro";
     <div>
       <h4>Product</h4>
       <ul>
-        <li><a href="#how-it-works">How it works</a></li>
-        <li><a href="#comparison">Compare</a></li>
-        <li><a href="#what-you-get">What you get</a></li>
-        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="/#how-it-works">How it works</a></li>
+        <li><a href="/#comparison">Compare</a></li>
+        <li><a href="/#what-you-get">What you get</a></li>
+        <li><a href="/#pricing">Pricing</a></li>
         <li><a href="https://crucible-generator.vercel.app/login">Log in</a></li>
       </ul>
     </div>
@@ -27,7 +26,7 @@ import Flame from "./Flame.astro";
         <li><a href="/privacy">Privacy</a></li>
         <li><a href="/terms">Terms</a></li>
         <li><a href="/cookies">Cookies</a></li>
-        <li><a href="mailto:hello@trycrucible.com">Contact</a></li>
+        <li><a href="/contact">Contact</a></li>
       </ul>
     </div>
     <div>
@@ -38,7 +37,7 @@ import Flame from "./Flame.astro";
       </form>
     </div>
   </div>
-  <div class="copyright">© {new Date().getFullYear()} Crucible. All rights reserved.</div>
+  <div class="copyright">© {new Date().getFullYear()} Polychlorinated Ventures LLC. All rights reserved.</div>
 </footer>
 
 <style>
@@ -65,11 +64,16 @@ import Flame from "./Flame.astro";
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
+    width: 34px;
+    height: 34px;
     border-radius: var(--radius-control);
     background: var(--ink);
-    color: var(--fin);
+    overflow: hidden;
+  }
+
+  .brand-mark img {
+    width: 24px;
+    height: 24px;
   }
 
   .brand-name {

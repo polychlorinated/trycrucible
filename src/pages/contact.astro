@@ -1,0 +1,200 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="Contact — Crucible"
+  description="Get in touch with the Crucible team."
+>
+  <Header />
+  <main>
+    <section class="contact-hero">
+      <div class="wrap contact-wrap">
+        <p class="eyebrow reveal">Contact</p>
+        <h1 class="contact-title reveal">Talk to <em>us.</em></h1>
+        <p class="contact-sub reveal">
+          Questions about pricing, teams, agencies, or anything else — send us a note and we’ll get
+          back to you.
+        </p>
+        <div class="card contact-card reveal">
+          <form class="contact-form" action="#" method="post" data-contact-form>
+            <label>
+              <span class="field-label">Name</span>
+              <input type="text" name="name" placeholder="Ada Lovelace" autocomplete="name" required />
+            </label>
+            <label>
+              <span class="field-label">Email</span>
+              <input type="email" name="email" placeholder="you@yourbusiness.com" autocomplete="email" required />
+            </label>
+            <label>
+              <span class="field-label">Message</span>
+              <textarea name="message" rows="6" placeholder="What’s on your mind?" required></textarea>
+            </label>
+            <button class="btn btn--fin" type="submit">Send message</button>
+          </form>
+          <p class="contact-alt">
+            Prefer email? <a href="mailto:hello@trycrucible.com">hello@trycrucible.com</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  import { CONTACT_WEBHOOK } from "../lib/contact-config";
+
+  const form = document.querySelector<HTMLFormElement>("form[data-contact-form]");
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const name = (form.querySelector("input[name='name']") as HTMLInputElement | null)?.value.trim() ?? "";
+    const email = (form.querySelector("input[name='email']") as HTMLInputElement | null)?.value.trim() ?? "";
+    const message = (form.querySelector("textarea[name='message']") as HTMLTextAreaElement | null)?.value.trim() ?? "";
+    if (!name || !email || !message) return;
+
+    const button = form.querySelector<HTMLButtonElement>("button[type='submit']");
+    let status = form.nextElementSibling;
+    if (!status || !status.classList.contains("form-status")) {
+      status = document.createElement("p");
+      status.className = "form-status";
+      status.setAttribute("role", "status");
+      status.setAttribute("aria-live", "polite");
+      form.after(status);
+    }
+
+    if (button) button.disabled = true;
+    status.textContent = "Sending…";
+    status.className = "form-status";
+
+    try {
+      const res = await fetch(CONTACT_WEBHOOK, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      status.textContent = "Message sent — we’ll be in touch soon.";
+      status.className = "form-status form-status--ok";
+      form.reset();
+    } catch {
+      status.textContent = "Something went wrong — please try again or email us directly.";
+      status.className = "form-status form-status--error";
+    } finally {
+      if (button) button.disabled = false;
+    }
+  });
+</script>
+
+<style>
+  .contact-hero {
+    padding: 88px 0 120px;
+  }
+
+  .contact-wrap {
+    max-width: 640px;
+  }
+
+  .contact-title {
+    margin: 0;
+    font-size: clamp(2.75rem, 5vw, 4rem);
+    font-weight: 430;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+
+  .contact-title em {
+    font-style: normal;
+    color: var(--fin);
+  }
+
+  .contact-sub {
+    margin: 20px 0 0;
+    font-size: 1.0625rem;
+    color: var(--ink-60);
+    max-width: 32rem;
+  }
+
+  .contact-card {
+    margin-top: 40px;
+    padding: 32px;
+  }
+
+  .contact-form {
+    display: grid;
+    gap: 20px;
+  }
+
+  .field-label {
+    display: block;
+    margin: 0 0 8px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-60);
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--oat);
+    border-radius: var(--radius-control);
+    background: var(--canvas);
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    resize: vertical;
+  }
+
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder {
+    color: var(--ink-50);
+  }
+
+  .contact-form input:focus-visible,
+  .contact-form textarea:focus-visible {
+    outline: 2px solid var(--fin);
+    outline-offset: 0;
+    border-color: var(--fin);
+  }
+
+  .contact-form .btn {
+    justify-self: start;
+  }
+
+  .contact-alt {
+    margin: 24px 0 0;
+    padding-top: 20px;
+    border-top: 1px solid var(--oat);
+    font-size: 0.875rem;
+    color: var(--ink-60);
+  }
+
+  .contact-alt a {
+    color: var(--fin-deep);
+    text-decoration: none;
+  }
+
+  .contact-alt a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  @media (max-width: 640px) {
+    .contact-hero {
+      padding: 64px 0 88px;
+    }
+  }
+</style>

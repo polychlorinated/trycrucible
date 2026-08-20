@@ -1,21 +1,20 @@
 ---
-import Flame from "./Flame.astro";
 ---
 
 <header class="site-header">
   <div class="wrap header-inner">
-    <a class="brand" href="#top" aria-label="Crucible — home">
+    <a class="brand" href="/" aria-label="Crucible — home">
       <span class="brand-mark">
-        <Flame />
+        <img src="/flame-icon.png" alt="" width="32" height="32" loading="eager" />
       </span>
       <span class="brand-name">Crucible</span>
     </a>
     <nav class="main-nav" id="main-nav" aria-label="Marketing">
-      <a href="#how-it-works">How it works</a>
-      <a href="#comparison">Compare</a>
-      <a href="#what-you-get">What you get</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#faq">FAQ</a>
+      <a href="/#how-it-works">How it works</a>
+      <a href="/#comparison">Compare</a>
+      <a href="/#what-you-get">What you get</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/#faq">FAQ</a>
     </nav>
     <div class="header-ctas">
       <a class="btn btn--ghost btn--small" href="https://crucible-generator.vercel.app/login">Log in</a>
@@ -93,11 +92,16 @@ import Flame from "./Flame.astro";
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
+    width: 34px;
+    height: 34px;
     border-radius: var(--radius-control);
     background: var(--ink);
-    color: var(--fin);
+    overflow: hidden;
+  }
+
+  .brand-mark img {
+    width: 24px;
+    height: 24px;
   }
 
   .brand-name {

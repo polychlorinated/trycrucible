@@ -1,0 +1,155 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "./Header.astro";
+import Footer from "./Footer.astro";
+import type { LegalBlock } from "../lib/legal-types";
+
+interface Props {
+  title: string;
+  description: string;
+  updated: string;
+  intro?: string;
+  blocks: LegalBlock[];
+}
+
+const { title, description, updated, intro, blocks } = Astro.props;
+---
+
+<Layout title={`${title} — Crucible`} description={description}>
+  <Header />
+  <main>
+    <section class="legal-hero">
+      <div class="wrap legal-wrap">
+        <p class="eyebrow reveal">Legal</p>
+        <h1 class="legal-title reveal">{title}</h1>
+        <p class="legal-updated reveal">{updated}</p>
+      </div>
+    </section>
+    <section class="legal-body">
+      <div class="wrap legal-wrap">
+        {
+          intro && <p class="legal-intro reveal" set:html={intro} />
+        }
+        {
+          blocks.map((block) => {
+            if (block.type === "h2") {
+              return <h2 class="legal-h2 reveal">{block.text}</h2>;
+            }
+            if (block.type === "ul") {
+              return (
+                <ul class="legal-list reveal">
+                  {block.items.map((item) => (
+                    <li set:html={item} />
+                  ))}
+                </ul>
+              );
+            }
+            return <p class="legal-p reveal" set:html={block.text} />;
+          })
+        }
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .legal-hero {
+    padding: 88px 0 48px;
+  }
+
+  .legal-wrap {
+    max-width: 768px;
+  }
+
+  .legal-title {
+    margin: 0;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 430;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+
+  .legal-updated {
+    margin: 20px 0 0;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-50);
+  }
+
+  .legal-body {
+    padding: 0 0 120px;
+  }
+
+  .legal-intro {
+    margin: 0;
+    font-size: 1.0625rem;
+    color: var(--ink-60);
+    max-width: 44rem;
+  }
+
+  .legal-h2 {
+    margin: 56px 0 0;
+    font-size: 1.5rem;
+    font-weight: 540;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .legal-p {
+    margin: 16px 0 0;
+    font-size: 1rem;
+    color: var(--ink-80);
+    max-width: 44rem;
+  }
+
+  .legal-list {
+    list-style: none;
+    margin: 16px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+    max-width: 44rem;
+  }
+
+  .legal-list li {
+    position: relative;
+    padding-left: 20px;
+    font-size: 1rem;
+    color: var(--ink-80);
+  }
+
+  .legal-list li::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 0.72em;
+    width: 6px;
+    height: 6px;
+    border-radius: 2px;
+    background: var(--fin);
+  }
+
+  a {
+    color: var(--fin-deep);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  @media (max-width: 640px) {
+    .legal-hero {
+      padding: 64px 0 40px;
+    }
+
+    .legal-body {
+      padding-bottom: 88px;
+    }
+  }
+</style>

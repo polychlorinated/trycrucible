@@ -1,0 +1,113 @@
+---
+import LegalPage from "../components/LegalPage.astro";
+import type { LegalBlock } from "../lib/legal-types";
+
+const blocks: LegalBlock[] = [
+  {
+    type: "h2",
+    text: "1. Acceptance & Eligibility",
+  },
+  {
+    type: "p",
+    text: "By accessing or using the Services, you agree to be bound by this Agreement. If you do not agree, you must immediately exit and discontinue use of the Services.",
+  },
+  {
+    type: "ul",
+    items: [
+      "Age Requirement: You must be at least 18 years old to access or use the Services.",
+      "Authority: If you are using the Services on behalf of an entity or business, you represent and warrant that you have full authority to bind that entity to this Agreement.",
+      "Jurisdiction: The Services are controlled and operated from the United States.",
+    ],
+  },
+  {
+    type: "h2",
+    text: "2. Account Registration & Security",
+  },
+  {
+    type: "p",
+    text: "To access certain features of Crucible, you must register for an account using a valid email address.",
+  },
+  {
+    type: "ul",
+    items: [
+      "Responsibility: You are solely responsible for maintaining the confidentiality of your login credentials and for all activities that occur under your account.",
+      "Breach Notification: You agree to notify us immediately at <a href=\"mailto:hello@trycrucible.com\">hello@trycrucible.com</a> if you suspect any unauthorized access or security breach.",
+      "Termination Right: We reserve the right to suspend or terminate accounts that violate this Agreement or pose security risks to the platform.",
+    ],
+  },
+  {
+    type: "h2",
+    text: "3. Subscriptions, Billing & Cancellations",
+  },
+  {
+    type: "ul",
+    items: [
+      "Billing Cycle: Subscriptions are billed on a recurring monthly or annual basis via our payment processor, Stripe. Paid subscriptions begin the day payment is confirmed.",
+      "Automatic Renewal: Subscriptions automatically renew at the end of each billing period unless canceled prior to the renewal date.",
+      "Cancellation: You may cancel your subscription at any time through your account settings or by emailing <a href=\"mailto:hello@trycrucible.com\">hello@trycrucible.com</a>. Upon cancellation, your subscription remains active through the end of the paid billing period.",
+      "Refunds: Except where required by law, subscription fees are non-refundable. You are responsible for reviewing draft assets before publishing or downloading.",
+    ],
+  },
+  {
+    type: "h2",
+    text: "4. Intellectual Property & User Content",
+  },
+  {
+    type: "ul",
+    items: [
+      "Ownership of Your Content: You retain 100% ownership of all raw video, audio, transcripts, context documents, and brand assets (“User Content”) that you upload or record within Crucible.",
+      "License to Crucible: By uploading or recording User Content, you grant Crucible a non-exclusive, worldwide, royalty-free license to process, transcribe, edit, format, and render your media solely to deliver the Services to you.",
+      "No Synthetic Training: Commercial API processing of your transcripts and voice through our subprocessors (e.g., Anthropic) is not used to train public AI models.",
+      "Crucible Intellectual Property: All rights, title, and interest in the Crucible application, AI interviewer workflows, software, logos, and UI components remain the exclusive property of Polychlorinated Ventures LLC DBA Crucible.",
+    ],
+  },
+  {
+    type: "h2",
+    text: "5. Prohibited Activities",
+  },
+  {
+    type: "p",
+    text: "You agree not to use the Services to: generate, upload, or distribute content that is illegal, defamatory, abusive, or infringes on third-party intellectual property rights; reverse engineer, decompile, scrape, or extract source code from the Crucible platform; transmit viruses, malware, or interfere with the infrastructure of Fly.io, Supabase, or Vercel; misrepresent your identity or impersonate any individual or entity.",
+  },
+  {
+    type: "h2",
+    text: "6. Digital Millennium Copyright Act (DMCA) Policy",
+  },
+  {
+    type: "p",
+    text: "If you believe material hosted on Crucible infringes your copyright, please send a written notice to our Designated Copyright Agent: Polychlorinated Ventures LLC DBA Crucible, Email: <a href=\"mailto:hello@trycrucible.com\">hello@trycrucible.com</a>. Your notice must include: (a) physical or electronic signature of the copyright owner; (b) identification of the copyrighted work; (c) description of where the material is located; and (d) your contact information.",
+  },
+  {
+    type: "h2",
+    text: "7. Disclaimers & Limitation of Liability",
+  },
+  {
+    type: "p",
+    text: "THE SERVICES ARE PROVIDED ON AN “AS IS” AND “AS AVAILABLE” BASIS WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED. CRUCIBLE DISCLAIMS ALL WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. TO THE FULLEST EXTENT PERMITTED BY LAW, POLYCHLORINATED VENTURES LLC SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, CONSEQUENTIAL, SPECIAL, OR PUNITIVE DAMAGES, OR LOSS OF PROFITS, DATA, OR GOODWILL ARISING FROM YOUR USE OF THE SERVICES.",
+  },
+  {
+    type: "h2",
+    text: "8. Governing Law & Dispute Resolution",
+  },
+  {
+    type: "p",
+    text: "This Agreement is governed by the laws of the State of Texas, without regard to conflict of law principles. Any dispute arising under or relating to this Agreement shall be resolved through binding individual arbitration administered in Texas, and you waive any right to participate in a class-action lawsuit.",
+  },
+  {
+    type: "h2",
+    text: "9. Contact Us",
+  },
+  {
+    type: "p",
+    text: "For legal inquiries, feedback, or support: Polychlorinated Ventures LLC DBA Crucible, Email: <a href=\"mailto:hello@trycrucible.com\">hello@trycrucible.com</a>.",
+  },
+];
+---
+
+<LegalPage
+  title="Terms of Use"
+  description="The terms governing your use of Crucible’s website, applications, and services."
+  updated="Effective Date: August 6, 2026"
+  intro="This Terms of Use Agreement (the “Agreement”) is made between you and Polychlorinated Ventures LLC DBA Crucible (“Company,” “we,” “us,” or “our”). This Agreement governs your access to and use of the website (trycrucible.com, crucible-generator.vercel.app), mobile applications, and all associated AI-assisted video editing, interviewing, and content generation services (collectively, the “Services”)."
+  blocks={blocks}
+/>
