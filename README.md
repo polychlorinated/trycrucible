@@ -11,7 +11,7 @@ source of truth for this site.
 
 ## Stack
 
-- **Astro 7** (static output) with the `@astrojs/cloudflare` adapter
+- **Astro 7** with plain static output (`dist/`) — no framework, no adapter
 - Self-hosted variable fonts via Fontsource: Archivo (display/body), Newsreader
   (editorial serif accents), Geist Mono (technical labels)
 - Zero client-side frameworks; one small inline script for scroll reveals and
@@ -37,6 +37,9 @@ pnpm astro check      # typecheck .astro files
 2. Build settings (if using the dashboard): framework preset **Astro**,
    build command `pnpm build`, output directory `dist`.
 3. The site is fully static — no functions or runtime bindings needed.
+4. Keep `.wrangler/` out of the repo — it is ignored by `.gitignore` and must
+   never be committed (Cloudflare's build fails on a stale
+   `.wrangler/deploy/config.json`).
 
 ## Structure
 
