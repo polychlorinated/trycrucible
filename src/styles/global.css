@@ -254,6 +254,22 @@ a {
   border-radius: var(--radius-container) var(--radius-container) 0 0;
 }
 
+/* ---------- Lead capture forms ---------- */
+
+.form-status {
+  margin: 10px 0 0;
+  font-size: 0.875rem;
+  color: var(--ink-60);
+}
+
+.form-status--ok {
+  color: var(--fin-deep);
+}
+
+.form-status--error {
+  color: var(--report-red);
+}
+
 /* ---------- Scroll reveal ---------- */
 
 .reveal {

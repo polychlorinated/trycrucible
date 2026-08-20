@@ -27,6 +27,62 @@ const { title, description } = Astro.props;
   <body>
     <slot />
     <script>
+      const LEAD_ENDPOINT = "https://crucible-generator-api.fly.dev/public/leads";
+      const forms = document.querySelectorAll<HTMLFormElement>("form[data-capture-form]");
+
+      for (const form of forms) {
+        let status = form.nextElementSibling;
+        if (!status || !status.classList.contains("form-status")) {
+          status = document.createElement("p");
+          status.className = "form-status";
+          status.setAttribute("role", "status");
+          status.setAttribute("aria-live", "polite");
+          form.after(status);
+        }
+        const button = form.querySelector<HTMLButtonElement>("button[type='submit']");
+
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+          }
+          const email = form.querySelector<HTMLInputElement>("input[type='email']")?.value.trim() ?? "";
+          if (!email) return;
+
+          if (button) button.disabled = true;
+          if (status) {
+            status.textContent = "Sending…";
+            status.className = "form-status";
+          }
+          try {
+            const res = await fetch(LEAD_ENDPOINT, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                email,
+                source: "other-website",
+                utm: { campaign: "launch" },
+              }),
+            });
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            if (status) {
+              status.textContent = "You’re on the list.";
+              status.className = "form-status form-status--ok";
+            }
+            form.reset();
+          } catch {
+            if (status) {
+              status.textContent = "Something went wrong — please try again.";
+              status.className = "form-status form-status--error";
+            }
+          } finally {
+            if (button) button.disabled = false;
+          }
+        });
+      }
+    </script>
+    <script>
       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const reveals = document.querySelectorAll(".reveal");
       if (reduceMotion) {

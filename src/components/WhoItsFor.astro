@@ -1,0 +1,90 @@
+---
+const audiences = [
+  {
+    num: "01",
+    title: "Founders & Business Owners",
+    body: "Trust is the currency of modern growth. Telling your story authentically is one of the fastest ways to build trust. Crucible frees the incredible ideas floating in your head that the market needs to hear in order to buy into your brand.",
+  },
+  {
+    num: "02",
+    title: "Teams",
+    body: "Your company isn’t just built by founders; the whole team contributes to how the world sees your brand. Crucible is for teams to share their constellation of perspectives, melding together to represent what the market believes about you.",
+  },
+  {
+    num: "03",
+    title: "Agencies",
+    body: "You don’t need to build out a production studio to develop your client brands. Crucible gives agencies a simple stack to capture client views & talking points without requiring dedicated researchers, interviewers, videographers, editors, or writers. Spend more time with clients and less time clicking the mouse.",
+  },
+];
+---
+
+<section class="section" id="who-its-for">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Who Crucible is for</p>
+      <h2 class="display">Built for the people <em>building brands.</em></h2>
+    </div>
+    <div class="audiences">
+      {
+        audiences.map((a) => (
+          <article class="card audience reveal">
+            <span class="audience-num">{a.num}</span>
+            <h3>{a.title}</h3>
+            <p>{a.body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .audiences {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 56px;
+  }
+
+  .audience {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .audience-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    margin-bottom: 20px;
+    border-radius: var(--radius-control);
+    background: var(--fin-tint);
+    color: var(--fin-deep);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+  }
+
+  .audience h3 {
+    margin: 0;
+    font-size: 1.375rem;
+    font-weight: 540;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .audience p {
+    margin: 12px 0 0;
+    font-size: 0.9375rem;
+    color: var(--ink-60);
+  }
+
+  @media (max-width: 900px) {
+    .audiences {
+      grid-template-columns: 1fr;
+      margin-top: 40px;
+    }
+  }
+</style>

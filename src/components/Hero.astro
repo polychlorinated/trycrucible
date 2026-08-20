@@ -1,5 +1,4 @@
 ---
-import StudioMock from "./StudioMock.astro";
 ---
 
 <section class="hero" id="top">
@@ -10,8 +9,8 @@ import StudioMock from "./StudioMock.astro";
         Brain dump your ideas in 10&nbsp;minutes. <em>Check every content box</em> for the week.
       </h1>
       <p class="hero-sub reveal" data-od-id="hero-subhead">
-        Building your reputational authority shouldn’t require burning 10 hours a week or hiring a
-        $5,000/month ghostwriter. Record your raw running commentary whenever inspiration strikes.
+        Building your reputational authority shouldn’t burn 10 hours a week or cost you a
+        $5,000/month ghostwriter. Record your raw train of thought whenever inspiration strikes.
         Crucible reworks your exact words into 60-second social clips, longer deep dive videos, and
         ready-to-publish posts.
       </p>
@@ -22,7 +21,12 @@ import StudioMock from "./StudioMock.astro";
       <p class="microtrust reveal">No credit card · No charge for your first project · No watermarks</p>
     </div>
     <div class="hero-media reveal">
-      <StudioMock />
+      <img
+        src="/hero-studio.png"
+        alt="Crucible studio — turn one brain-dump recording into a week of clips, posts, and articles"
+        width="860"
+        height="743"
+      />
     </div>
   </div>
 </section>
@@ -76,6 +80,20 @@ import StudioMock from "./StudioMock.astro";
     font-size: 0.75rem;
     letter-spacing: 0.04em;
     color: var(--ink-50);
+  }
+
+  .hero-media {
+    border: 1px solid var(--oat);
+    border-radius: var(--radius-container);
+    background: var(--surface);
+    box-shadow: var(--shadow-lift);
+    overflow: hidden;
+  }
+
+  .hero-media img {
+    display: block;
+    width: 100%;
+    height: auto;
   }
 
   @media (max-width: 1023px) {

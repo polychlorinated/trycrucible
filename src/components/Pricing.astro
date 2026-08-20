@@ -12,9 +12,11 @@ const tiers = [
       "Turn 1 weekly 10-minute brain dump into a full suite of short clips, deep-dive videos, and written posts.",
     features: [
       "4 Drafts per month",
+      "AI Interviewer",
+      "Record in-app or upload video",
       "Social Shorts + Deep Dives",
-      "Written LinkedIn Posts",
-      "Newsletters & Articles",
+      "Schedule and post to LinkedIn, X, TikTok, etc.",
+      "Short- & long-form written content using your original words & phrases",
       "Insights & Trends (competitors, thought leaders, topics)",
       "Preserve Mode (Natural) & Remix Mode (Viral)",
       "Context Knowledge Base (Upload PDFs & Links)",
@@ -26,8 +28,16 @@ const tiers = [
     name: "Enterprise",
     featured: false,
     price: { current: "Let’s talk" },
-    blurb: "For teams running content at scale with custom workflows, compliance, and dedicated support.",
-    features: ["Everything in Pro", "Unlimited drafts", "Custom AI model tuning", "Dedicated support", "SSO & team management"],
+    blurb:
+      "Grow your brand with diverse voices from across your team. For teams running content at scale with custom workflows, compliance, and dedicated support.",
+    features: [
+      "Everything in Pro",
+      "Unlimited team seats",
+      "Unified brand guide for all users",
+      "Unlimited drafts",
+      "Dedicated support",
+      "SSO & team management",
+    ],
     cta: { label: "Contact us", href: "mailto:hello@trycrucible.com?subject=Enterprise%20Inquiry" },
   },
   {
@@ -51,9 +61,10 @@ const tiers = [
   <div class="wrap">
     <div class="section-head section-head--center reveal">
       <p class="eyebrow">Pricing</p>
-      <h2 class="display">Start free. <em>Pay when it’s working.</em></h2>
+      <h2 class="display">Start free. <em>Pay when it’s proven.</em></h2>
       <p class="lede">
-        Your first project — the edited video and the full set of posts — is free. No card, no trial timer.
+        Your first project — the edited video and the full set of posts — is free. No cards, no
+        feature gates, no watermarks.
       </p>
     </div>
     <div class="tiers">
@@ -88,7 +99,7 @@ const tiers = [
     </p>
     <div class="launch-form reveal">
       <p class="launch-form-label">Get launch updates</p>
-      <form class="email-form" action="#" method="get" data-capture-form>
+      <form class="email-form" action="#" method="post" data-capture-form>
         <input type="email" name="email" placeholder="you@yourbusiness.com" aria-label="Email address" required />
         <button class="btn" type="submit">Notify me</button>
       </form>
@@ -237,6 +248,10 @@ const tiers = [
     outline: 2px solid var(--fin);
     outline-offset: 0;
     border-color: var(--fin);
+  }
+
+  .launch-form :global(.form-status) {
+    text-align: center;
   }
 
   @media (max-width: 900px) {
