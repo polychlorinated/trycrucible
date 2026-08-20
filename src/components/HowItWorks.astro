@@ -1,0 +1,90 @@
+---
+const steps = [
+  {
+    num: "01",
+    title: "The Podcast Experience",
+    body: "Don’t know where to start? You don’t have to. Record on your schedule—no calendar coordination or agency check-in calls required. Our Live AI Interviewer uses your brand profile and context documents to host a dynamic podcast session that draws out your best ideas.",
+  },
+  {
+    num: "02",
+    title: "Dual-Path Extraction",
+    body: "Choose your edit path. Keep your natural conversational flow with ‘Preserve Mode,’ or let ‘Remix Mode’ extract viral hooks, remove fluff, and split your recording into high-impact social clips.",
+  },
+  {
+    num: "03",
+    title: "Text-Based Polish & Distribution",
+    body: "Review your video transcript and click any word to cut it. Video is just the start: from your spoken insights, Crucible drafts social posts, newsletters, and blogs. Your authentic voice across every platform. Download or publish directly from your dashboard.",
+  },
+];
+---
+
+<section class="section section--wash" id="how-it-works">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">How it works</p>
+      <h2 class="display">Ten minutes of talking. <em>A full content week.</em></h2>
+    </div>
+    <div class="steps">
+      {
+        steps.map((s, i) => (
+          <article class="card step reveal" style={`--delay: ${i * 60}ms`}>
+            <span class="step-num">{s.num}</span>
+            <h3>{s.title}</h3>
+            <p>{s.body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 56px;
+  }
+
+  .step {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    margin-bottom: 20px;
+    border-radius: var(--radius-control);
+    background: var(--ink);
+    color: var(--canvas);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+  }
+
+  .step h3 {
+    margin: 0;
+    font-size: 1.375rem;
+    font-weight: 540;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .step p {
+    margin: 12px 0 0;
+    font-size: 0.9375rem;
+    color: var(--ink-60);
+  }
+
+  @media (max-width: 900px) {
+    .steps {
+      grid-template-columns: 1fr;
+      margin-top: 40px;
+    }
+  }
+</style>

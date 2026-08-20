@@ -1,0 +1,175 @@
+---
+import Flame from "./Flame.astro";
+---
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="#top" aria-label="Crucible — back to top">
+        <span class="brand-mark"><Flame /></span>
+        <span class="brand-name">Crucible</span>
+      </a>
+      <p class="tagline">Turn raw brain dumps into a week of content</p>
+    </div>
+    <div>
+      <h4>Product</h4>
+      <ul>
+        <li><a href="#how-it-works">How it works</a></li>
+        <li><a href="#comparison">Compare</a></li>
+        <li><a href="#what-you-get">What you get</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="/login">Log in</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/privacy">Privacy</a></li>
+        <li><a href="/terms">Terms</a></li>
+        <li><a href="/cookies">Cookies</a></li>
+        <li><a href="mailto:hello@trycrucible.com">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Get launch updates</h4>
+      <form class="email-form" action="#" method="get" data-capture-form>
+        <input type="email" name="email" placeholder="you@yourbusiness.com" aria-label="Email address" required />
+        <button class="btn btn--small" type="submit">Notify me</button>
+      </form>
+    </div>
+  </div>
+  <div class="copyright">© {new Date().getFullYear()} Crucible. All rights reserved.</div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--oat);
+    background: var(--wash);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.6fr;
+    gap: 40px;
+    padding: 56px 0 48px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .brand-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-control);
+    background: var(--ink);
+    color: var(--fin);
+  }
+
+  .brand-name {
+    font-size: 1.125rem;
+    font-weight: 640;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .tagline {
+    margin: 14px 0 0;
+    font-size: 0.875rem;
+    color: var(--ink-60);
+  }
+
+  h4 {
+    margin: 0 0 14px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-60);
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    margin-top: 10px;
+  }
+
+  a {
+    font-size: 0.875rem;
+    color: var(--ink-60);
+    text-decoration: none;
+    transition: color 160ms var(--ease-out);
+  }
+
+  a:hover {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--fin);
+    text-underline-offset: 3px;
+  }
+
+  .email-form {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+  }
+
+  .email-form input {
+    flex: 1;
+    min-width: 0;
+    min-height: 44px;
+    padding: 10px 12px;
+    border: 1px solid var(--oat);
+    border-radius: var(--radius-control);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+  }
+
+  .email-form input::placeholder {
+    color: var(--ink-50);
+  }
+
+  .email-form input:focus-visible {
+    outline: 2px solid var(--fin);
+    outline-offset: 0;
+    border-color: var(--fin);
+  }
+
+  .copyright {
+    border-top: 1px solid var(--oat);
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--ink-50);
+  }
+
+  @media (max-width: 900px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .email-form {
+      flex-direction: column;
+    }
+  }
+</style>

@@ -1,0 +1,139 @@
+---
+const tiers = [
+  {
+    title: "Agencies & Ghostwriters",
+    price: "$2,000 – $5,000 / month",
+    items: [
+      "Requires endless logistics to share and clarify your voice and content.",
+      "Takes days or weeks to turn around basic text or video drafts.",
+      "Hard to find both high production value and authentic content.",
+      "Adds another employee to manage.",
+    ],
+    featured: false,
+  },
+  {
+    title: "DIY Apps & Generic AI Tools",
+    price: "$15 – $60 / month",
+    items: [
+      "Has zero idea WHY you are saying what you’re saying.",
+      "Gives you a blank screen then expects you to be writer, director, producer, editor, and actor.",
+      "Cuts videos based on arbitrary loudness rather than narrative context.",
+      "Risks generic “AI slop” that forces you to re-prompt endlessly.",
+    ],
+    featured: false,
+  },
+  {
+    title: "The Crucible Engine",
+    price: "Highest leverage of your time and money",
+    items: [
+      "Conversational extraction: our host interviews you on-demand 24/7 based on your exact business and topic context.",
+      "Authentically you: reworks raw brain dumps, turning your train of thought into clean narrative assets while retaining your natural human voice and face.",
+      "Multi-format coverage: delivers 60-second viral clips, 5–10 minute thought pieces, and written LinkedIn/blog posts in one pass.",
+      "Smart editing: full control of your content with robust AI editing and final text-based polishing.",
+    ],
+    featured: true,
+  },
+];
+---
+
+<section class="section" id="comparison">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Compare</p>
+      <h2 class="display">Stop choosing between <em>$5,000 ghostwriters</em> and the DIY software trap.</h2>
+      <p class="lede">
+        Traditional agencies drain your budget trying to represent you authentically; software apps
+        drain your time with a high learning curve or constant AI re-prompting.
+      </p>
+    </div>
+    <div class="tiers">
+      {
+        tiers.map((t) => (
+          <article class:list={["card", "tier", { "card--highlight": t.featured }]}>
+            <div class="tier-head">
+              <h3>{t.title}</h3>
+              <p class:list={["tier-price", { "is-fin": t.featured }]}>{t.price}</p>
+            </div>
+            <ul class="tier-features">
+              {t.items.map((item) => (
+                <li>
+                  {!t.featured ? <span class="mark mark--off" aria-hidden="true">—</span> : <span class="mark" aria-hidden="true">✓</span>}
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .tiers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 56px;
+    align-items: stretch;
+  }
+
+  .tier {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tier-head h3 {
+    margin: 0;
+    font-size: 1.375rem;
+    font-weight: 540;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .tier-price {
+    margin: 10px 0 0;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    letter-spacing: 0.03em;
+    color: var(--ink-60);
+  }
+
+  .tier-price.is-fin {
+    color: var(--fin-deep);
+    font-weight: 500;
+  }
+
+  .tier-features {
+    list-style: none;
+    margin: 20px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+  }
+
+  .tier-features li {
+    display: flex;
+    gap: 10px;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--ink-80);
+  }
+
+  .mark {
+    flex-shrink: 0;
+    color: var(--fin-deep);
+    font-weight: 640;
+  }
+
+  .mark--off {
+    color: var(--sand);
+  }
+
+  @media (max-width: 900px) {
+    .tiers {
+      grid-template-columns: 1fr;
+      margin-top: 40px;
+    }
+  }
+</style>

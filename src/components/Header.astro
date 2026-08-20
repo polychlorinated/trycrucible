@@ -1,0 +1,216 @@
+---
+import Flame from "./Flame.astro";
+---
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" aria-label="Crucible — home">
+      <span class="brand-mark">
+        <Flame />
+      </span>
+      <span class="brand-name">Crucible</span>
+    </a>
+    <nav class="main-nav" id="main-nav" aria-label="Marketing">
+      <a href="#how-it-works">How it works</a>
+      <a href="#comparison">Compare</a>
+      <a href="#what-you-get">What you get</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="header-ctas">
+      <a class="btn btn--ghost btn--small" href="/login">Log in</a>
+      <a class="btn btn--small" href="/login">Start free</a>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="main-nav"
+        aria-label="Toggle menu"
+      >
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>(".menu-toggle");
+  const nav = document.getElementById("main-nav");
+
+  const closeMenu = () => {
+    toggle?.setAttribute("aria-expanded", "false");
+    nav?.classList.remove("is-open");
+  };
+
+  toggle?.addEventListener("click", () => {
+    const open = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!open));
+    nav?.classList.toggle("is-open", !open);
+  });
+
+  nav?.addEventListener("click", (e) => {
+    if ((e.target as HTMLElement).tagName === "A") closeMenu();
+  });
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 900) closeMenu();
+  });
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: rgb(250 249 246 / 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--oat);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 0;
+    position: relative;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .brand-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-control);
+    background: var(--ink);
+    color: var(--fin);
+  }
+
+  .brand-name {
+    font-size: 1.125rem;
+    font-weight: 640;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 4px;
+  }
+
+  .main-nav a {
+    padding: 8px 10px;
+    border-radius: var(--radius-control);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-60);
+    text-decoration: none;
+    transition:
+      background-color 160ms var(--ease-out),
+      color 160ms var(--ease-out);
+  }
+
+  .main-nav a:hover {
+    background: var(--wash);
+    color: var(--ink);
+  }
+
+  .header-ctas {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn--small {
+    min-height: 38px;
+    padding: 9px 16px;
+    font-size: 0.875rem;
+  }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 38px;
+    height: 38px;
+    padding: 9px;
+    border: 1px solid var(--oat);
+    border-radius: var(--radius-control);
+    background: var(--surface);
+    cursor: pointer;
+  }
+
+  .menu-bar {
+    display: block;
+    height: 2px;
+    border-radius: 1px;
+    background: var(--ink);
+    transition: transform 200ms var(--ease-out);
+  }
+
+  .menu-toggle[aria-expanded="true"] .menu-bar:first-child {
+    transform: translateY(3.5px) rotate(45deg);
+  }
+
+  .menu-toggle[aria-expanded="true"] .menu-bar:last-child {
+    transform: translateY(-3.5px) rotate(-45deg);
+  }
+
+  .menu-toggle:focus-visible {
+    outline: 2px solid var(--fin);
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 900px) {
+    .menu-toggle {
+      display: flex;
+    }
+
+    .main-nav {
+      position: absolute;
+      top: calc(100% + 1px);
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      gap: 2px;
+      padding: 8px;
+      border-bottom: 1px solid var(--oat);
+      background: var(--canvas);
+      box-shadow: var(--shadow-lift);
+      display: none;
+    }
+
+    .main-nav.is-open {
+      display: flex;
+    }
+
+    .main-nav a {
+      padding: 12px 10px;
+      font-size: 0.8125rem;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .btn--ghost.btn--small {
+      display: none;
+    }
+  }
+</style>

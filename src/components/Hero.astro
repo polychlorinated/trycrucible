@@ -1,0 +1,93 @@
+---
+import StudioMock from "./StudioMock.astro";
+---
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow reveal">Built for busy leaders who “don’t do social”</p>
+      <h1 class="hero-title reveal" data-od-id="hero-headline">
+        Brain dump your ideas in 10&nbsp;minutes. <em>Check every content box</em> for the week.
+      </h1>
+      <p class="hero-sub reveal" data-od-id="hero-subhead">
+        Building your reputational authority shouldn’t require burning 10 hours a week or hiring a
+        $5,000/month ghostwriter. Record your raw running commentary whenever inspiration strikes.
+        Crucible reworks your exact words into 60-second social clips, longer deep dive videos, and
+        ready-to-publish posts.
+      </p>
+      <div class="hero-ctas reveal">
+        <a class="btn btn--fin" href="/login" data-od-id="hero-cta-primary">Capture Your First Brain Dump</a>
+        <a class="btn btn--outline" href="#comparison">Compare Your Options</a>
+      </div>
+      <p class="microtrust reveal">No credit card · No charge for your first project · No watermarks</p>
+    </div>
+    <div class="hero-media reveal">
+      <StudioMock />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding: 72px 0 96px;
+    border-top: 0;
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: 56px;
+    align-items: center;
+  }
+
+  .hero-title {
+    margin: 0;
+    font-size: clamp(2.75rem, 6vw, 4.75rem);
+    font-weight: 430;
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+  }
+
+  .hero-title em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 380;
+    letter-spacing: -0.015em;
+  }
+
+  .hero-sub {
+    margin: 24px 0 0;
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    color: var(--ink-60);
+    max-width: 36rem;
+  }
+
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 36px;
+  }
+
+  .microtrust {
+    margin: 20px 0 0;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    color: var(--ink-50);
+  }
+
+  @media (max-width: 1023px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+
+    .hero {
+      padding: 48px 0 80px;
+    }
+  }
+</style>

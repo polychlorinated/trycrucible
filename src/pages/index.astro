@@ -1,0 +1,31 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import HowItWorks from "../components/HowItWorks.astro";
+import Comparison from "../components/Comparison.astro";
+import WhatYouGet from "../components/WhatYouGet.astro";
+import SampleOutput from "../components/SampleOutput.astro";
+import Pricing from "../components/Pricing.astro";
+import Faq from "../components/Faq.astro";
+import FinalCta from "../components/FinalCta.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="Crucible — Brain dump your ideas in 10 minutes. Check every content box for the week."
+  description="Share your raw running commentary, and Crucible reworks your exact words into 60-second social clips, 5–10 minute deep-dive thought pieces, and ready-to-publish written posts."
+>
+  <Header />
+  <main>
+    <Hero />
+    <HowItWorks />
+    <Comparison />
+    <WhatYouGet />
+    <SampleOutput />
+    <Pricing />
+    <Faq />
+    <FinalCta />
+  </main>
+  <Footer />
+</Layout>

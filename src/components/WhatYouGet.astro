@@ -1,0 +1,82 @@
+---
+const features = [
+  { title: "60-Second Social Shorts", body: "High-impact, hook-first clips formatted for LinkedIn, TikTok, and YouTube Shorts." },
+  { title: "5–10 Minute Deep Dives", body: "Structured video thought pieces ideal for long-form YouTube, embedded newsletter updates, or customer-facing product and strategy reviews." },
+  { title: "Written Articles & Social Posts", body: "Transformed text drafts — LinkedIn posts, newsletters, blog articles — assembled directly from your spoken logic and your topic knowledge base." },
+  { title: "Preserve or Remix", body: "Choose a light-touch pass that retains your full story or a director’s cut of short- and long-form content for any platform." },
+  { title: "Your Interview Partner", body: "No teleprompter required — your on-demand host adapts to your answers live, asking follow-up questions that pull your best insights to the surface." },
+  { title: "Documentary Style Production", body: "The final render features 100% you. The interviewer stays off-camera and off-mic, leaving you with clean, solo videos." },
+  { title: "Context Knowledge Base", body: "Upload style guides, PDF articles, or research links to inform your interview questions and ensure written posts match your domain." },
+  { title: "Insights & Trends", body: "Track the competitors, thought leaders, and topics that matter in your space. Crucible analyzes what people are talking about right now and shows where you can weigh in — or where the greenspace is yours to own." },
+];
+---
+
+<section class="section section--wash" id="what-you-get">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">What you get</p>
+      <h2 class="display">Every format your week needs, <em>from one recording.</em></h2>
+    </div>
+    <div class="features">
+      {
+        features.map((f) => (
+          <article class="card feature reveal">
+            <span class="feature-dot" aria-hidden="true"></span>
+            <h3>{f.title}</h3>
+            <p>{f.body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 56px;
+  }
+
+  .feature {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 16px;
+    align-items: start;
+  }
+
+  .feature-dot {
+    width: 8px;
+    height: 8px;
+    margin-top: 7px;
+    border-radius: 2px;
+    background: var(--fin);
+  }
+
+  .feature:nth-child(4n + 2) .feature-dot { background: var(--report-blue); }
+  .feature:nth-child(4n + 3) .feature-dot { background: var(--report-lime); }
+  .feature:nth-child(4n + 4) .feature-dot { background: var(--report-pink); }
+
+  .feature h3 {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 560;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+  }
+
+  .feature p {
+    grid-column: 2;
+    margin: 8px 0 0;
+    font-size: 0.9375rem;
+    color: var(--ink-60);
+  }
+
+  @media (max-width: 768px) {
+    .features {
+      grid-template-columns: 1fr;
+      margin-top: 40px;
+    }
+  }
+</style>

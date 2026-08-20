@@ -1,0 +1,129 @@
+---
+const faqs = [
+  {
+    q: "Do I have to be good on camera?",
+    a: "No. Crucible is built for normal people talking normally. The stumbles, restarts and “ums” are exactly what it removes.",
+  },
+  {
+    q: "How long does this actually take?",
+    a: "About ten minutes of talking. Your edited video, clips, and written posts are typically ready a few minutes after that.",
+  },
+  {
+    q: "Can I change what it writes?",
+    a: "All of it. Every post, caption and the blog draft is editable before it goes anywhere, and you can send the video back for a re-cut.",
+  },
+  {
+    q: "Does it post for me?",
+    a: "You can export the files, or connect your LinkedIn account and publish straight from Crucible.",
+  },
+  {
+    q: "What if it doesn’t sound like my business?",
+    a: "You approve the brand voice profile up front and can edit it any time. Change it, and everything written afterwards follows.",
+  },
+  {
+    q: "What happens to my footage?",
+    a: "It’s stored privately in your account and you can delete it whenever you want. See our privacy policy.",
+  },
+  {
+    q: "Do I need the mobile app?",
+    a: "No. You can record or upload straight from the web app. The mobile app is there if you’d rather capture on your phone.",
+  },
+  {
+    q: "What’s free, exactly?",
+    a: "Your first project: one recording, the edited video, and the full set of posts. After that you’ll need a plan.",
+  },
+];
+---
+
+<section class="section" id="faq">
+  <div class="wrap faq-wrap">
+    <div class="section-head section-head--center reveal">
+      <p class="eyebrow">FAQ</p>
+      <h2 class="display">Questions, <em>answered.</em></h2>
+    </div>
+    <div class="faq-list reveal">
+      {
+        faqs.map((f) => (
+          <details class="faq-item">
+            <summary>
+              {f.q}
+              <span class="plus" aria-hidden="true">+</span>
+            </summary>
+            <p>{f.a}</p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-wrap {
+    max-width: 768px;
+  }
+
+  .faq-list {
+    margin-top: 48px;
+    border: 1px solid var(--oat);
+    border-radius: var(--radius-container);
+    background: var(--surface);
+    box-shadow: var(--shadow-whisper);
+    overflow: hidden;
+  }
+
+  .faq-item {
+    border-top: 1px solid var(--oat);
+  }
+
+  .faq-item:first-child {
+    border-top: 0;
+  }
+
+  .faq-item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 24px;
+    cursor: pointer;
+    list-style: none;
+    font-size: 0.9375rem;
+    font-weight: 560;
+    letter-spacing: -0.005em;
+    transition: background-color 160ms var(--ease-out);
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary:hover {
+    background: var(--canvas);
+  }
+
+  .faq-item summary:focus-visible {
+    outline: 2px solid var(--fin);
+    outline-offset: -2px;
+  }
+
+  .plus {
+    flex-shrink: 0;
+    color: var(--ink-50);
+    font-weight: 400;
+    font-size: 1.125rem;
+    transition: transform 200ms var(--ease-out);
+  }
+
+  .faq-item[open] .plus {
+    transform: rotate(45deg);
+    color: var(--fin-deep);
+  }
+
+  .faq-item p {
+    margin: 0;
+    padding: 0 24px 20px;
+    font-size: 0.9375rem;
+    color: var(--ink-60);
+    max-width: 42rem;
+  }
+</style>
