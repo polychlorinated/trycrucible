@@ -1,5 +1,4 @@
 @import "@fontsource-variable/archivo";
-@import "@fontsource-variable/newsreader";
 @import "@fontsource-variable/geist-mono";
 
 :root {
@@ -23,7 +22,6 @@
   --report-red: #c41c1c;
 
   --font-display: "Archivo Variable", "Archivo Fallback", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Newsreader Variable", "Newsreader Fallback", ui-serif, Georgia, serif;
   --font-mono: "Geist Mono Variable", "Geist Mono Fallback", ui-monospace, SFMono-Regular, Menlo, monospace;
 
   --radius-control: 4px;
@@ -129,10 +127,8 @@ a {
 }
 
 .display em {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 380;
-  letter-spacing: -0.015em;
+  font-style: normal;
+  color: var(--fin);
 }
 
 .lede {

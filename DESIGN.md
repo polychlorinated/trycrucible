@@ -52,10 +52,11 @@ index markers, and the waveform — never for interactive chrome.
 ## Typography
 
 - **Display / body:** Archivo Variable (Saans analog — geometric grotesque).
-- **Editorial accent:** Newsreader Variable, italic, light — used only for
-  italic serif moments inside display headlines and ledes.
 - **Technical labels:** Geist Mono — uppercase, 12px, `0.08em` tracking
   (nav links, eyebrows, step numbers, meta).
+- **Heading emphasis:** the emphasized word inside display headings
+  (`<em>`) is set upright, same weight, in Fin Orange — a single-color
+  editorial accent instead of a second typeface. No serif faces anywhere.
 
 ### Hierarchy
 
