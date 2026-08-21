@@ -1,60 +1,5 @@
 ---
-const tiers = [
-  {
-    name: "Crucible Pro",
-    featured: true,
-    price: {
-      strike: "$299/month",
-      current: "$199/month",
-      badge: "Launch deal",
-    },
-    blurb:
-      "Turn 1 weekly 10-minute brain dump into a full suite of short clips, deep-dive videos, and written posts.",
-    features: [
-      "4 Drafts per month",
-      "AI Interviewer",
-      "Record in-app or upload video",
-      "Social Shorts + Deep Dives",
-      "Schedule and post to LinkedIn, X, TikTok, etc.",
-      "Short- & long-form written content using your original words & phrases",
-      "Insights & Trends (competitors, thought leaders, topics)",
-      "Preserve Mode (Natural) & Remix Mode (Viral)",
-      "Context Knowledge Base (Upload PDFs & Links)",
-      "Free First Project Draft (No Risk)",
-    ],
-    cta: { label: "Start free", href: "https://app.trycrucible.com/login" },
-  },
-  {
-    name: "Enterprise",
-    featured: false,
-    price: { current: "Let’s talk" },
-    blurb:
-      "Grow your brand with diverse voices from across your team. For teams running content at scale with custom workflows, compliance, and dedicated support.",
-    features: [
-      "Everything in Pro",
-      "Unlimited team seats",
-      "Unified brand guide for all users",
-      "Unlimited drafts",
-      "Dedicated support",
-      "SSO & team management",
-    ],
-    cta: { label: "Contact us", href: "mailto:hello@trycrucible.com?subject=Enterprise%20Inquiry" },
-  },
-  {
-    name: "Agency",
-    featured: false,
-    price: { current: "Let’s talk" },
-    blurb: "For agencies managing content for multiple clients with white-label options.",
-    features: [
-      "Everything in Enterprise",
-      "Multi-brand management",
-      "Client review flows",
-      "White-label exports",
-      "API access",
-    ],
-    cta: { label: "Contact us", href: "mailto:hello@trycrucible.com?subject=Agency%20Inquiry" },
-  },
-];
+import { pricingPlans, singleCreditNote } from "../data/pricing";
 ---
 
 <section class="section section--wash" id="pricing">
@@ -63,39 +8,63 @@ const tiers = [
       <p class="eyebrow">Pricing</p>
       <h2 class="display">Start free. <em>Pay when it’s proven.</em></h2>
       <p class="lede">
-        Your first project — the edited video and the full set of posts — is free. No cards, no
-        feature gates, no watermarks.
+        Every plan starts with a single credit for your first project — free. No cards, no feature
+        gates, no watermarks.
       </p>
     </div>
     <div class="tiers">
       {
-        tiers.map((t) => (
-          <article class:list={["card", "tier", { "card--highlight": t.featured }]}>
-            <h3>{t.name}</h3>
-            <p class="tier-price">
-              {t.price.strike && <span class="strike">{t.price.strike}</span>}
-              <span class:list={[{ "is-fin": t.featured }]}>{t.price.current}</span>
-              {t.price.badge && <span class="badge">{t.price.badge}</span>}
+        pricingPlans.map((plan) => (
+          <article
+            class:list={[
+              "card",
+              "tier",
+              { "card--highlight": plan.featured, "tier--muted": plan.muted },
+            ]}
+            data-od-id={`pricing-card-${plan.name.toLowerCase().replace(/[^a-z]+/g, "-")}`}
+          >
+            <div class="tier-head">
+              <h3>{plan.name}</h3>
+              {
+                plan.badge && <span class="badge">{plan.badge}</span>
+              }
+            </div>
+            <p class:list={["tier-price", { "is-muted": plan.muted }]}>
+              {plan.price}
+              {plan.per && <span class="per">{plan.per}</span>}
             </p>
-            <p class="tier-blurb">{t.blurb}</p>
-            <ul class="tier-features">
-              {t.features.map((f) => (
-                <li>
-                  <span class="mark" aria-hidden="true">✓</span>
-                  {f}
-                </li>
-              ))}
-            </ul>
-            <a class:list={["btn", "btn--block", { "btn--fin": t.featured, "btn--outline": !t.featured }]} href={t.cta.href}>
-              {t.cta.label}
+            {
+              plan.blurb && <p class="tier-blurb">{plan.blurb}</p>
+            }
+            {
+              plan.features.length > 0 && (
+                <ul class="tier-features">
+                  {plan.features.map((f) => (
+                    <li>
+                      <span class="mark" aria-hidden="true">✓</span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              )
+            }
+            {
+              plan.creditNote && <p class="credit-note">{plan.creditNote}</p>
+            }
+            <a
+              class:list={["btn", "btn--block", { "btn--fin": plan.featured, "btn--outline": !plan.featured }]}
+              href={plan.cta.href}
+            >
+              {plan.cta.label}
             </a>
           </article>
         ))
       }
     </div>
-    <p class="pricing-note reveal">
-      Launch pricing: $199/month for Crucible Pro (regularly $299). Your first project is free — upgrade whenever
-      you’re ready.
+    <p class="pricing-subtext reveal" data-od-id="pricing-single-credit-note">
+      {singleCreditNote.prefix}
+      <a href="https://app.trycrucible.com/login">{singleCreditNote.linkLabel}</a>
+      {singleCreditNote.suffix}
     </p>
     <div class="launch-form reveal">
       <p class="launch-form-label">Get launch updates</p>
@@ -121,36 +90,26 @@ const tiers = [
     flex-direction: column;
   }
 
+  .tier--muted {
+    border-style: dashed;
+    border-color: var(--sand);
+    background: var(--wash);
+    box-shadow: none;
+  }
+
+  .tier-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
   .tier h3 {
     margin: 0;
     font-size: 1.375rem;
     font-weight: 540;
     line-height: 1.1;
     letter-spacing: -0.02em;
-  }
-
-  .tier-price {
-    display: flex;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 14px 0 0;
-    font-size: 1.5rem;
-    font-weight: 560;
-    letter-spacing: -0.02em;
-    line-height: 1;
-  }
-
-  .strike {
-    font-size: 1.0625rem;
-    font-weight: 460;
-    color: var(--ink-50);
-    text-decoration: line-through;
-    text-decoration-thickness: 1.5px;
-  }
-
-  .is-fin {
-    color: var(--fin-deep);
   }
 
   .badge {
@@ -164,6 +123,34 @@ const tiers = [
     letter-spacing: 0.06em;
     text-transform: uppercase;
     line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  .tier-price {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 16px 0 0;
+    font-size: 1.75rem;
+    font-weight: 560;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .tier-price.is-muted {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-50);
+  }
+
+  .tier-price .per {
+    font-size: 0.9375rem;
+    font-weight: 460;
+    color: var(--ink-50);
   }
 
   .tier-blurb {
@@ -174,7 +161,7 @@ const tiers = [
 
   .tier-features {
     list-style: none;
-    margin: 20px 0 24px;
+    margin: 20px 0 0;
     padding: 0;
     display: grid;
     gap: 10px;
@@ -188,22 +175,44 @@ const tiers = [
     color: var(--ink-80);
   }
 
+  .tier--muted .tier-features li {
+    color: var(--ink-60);
+  }
+
   .mark {
     flex-shrink: 0;
     color: var(--fin-deep);
     font-weight: 640;
   }
 
+  .credit-note {
+    margin: 18px 0 20px;
+    padding: 8px 12px;
+    border: 1px solid var(--oat);
+    border-radius: var(--radius-control);
+    background: var(--fin-tint);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.04em;
+    color: var(--fin-deep);
+  }
+
   .tier .btn {
     margin-top: auto;
   }
 
-  .pricing-note {
+  .pricing-subtext {
     max-width: 44rem;
     margin: 36px auto 0;
     text-align: center;
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     color: var(--ink-60);
+  }
+
+  .pricing-subtext a {
+    color: var(--fin-deep);
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 
   .launch-form {
