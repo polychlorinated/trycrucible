@@ -13,21 +13,18 @@ const description =
 
 const steps = [
   {
-    num: "01",
     heading: "Step 1: Find your inspiration",
     body: "You already have the thoughts — Crucible gives you the hooks. The Topics tracker follows the competitors, thought leaders, and topics that matter in your space, then surfaces what people are talking about right now. Insights show where you can weigh in, and where the greenspace is yours to own. Pick an angle, and you’re ready to record.",
     image: "/topics-tracking.webp",
     imageAlt: "The Crucible topics page showing insights derived from the tracker, with the sidebar revealing the thought leaders and topics being followed",
   },
   {
-    num: "02",
     heading: "Step 2: Record Your Raw Thoughts",
     body: "Recording shouldn’t feel like a performance. Choose your path: a rambling brain dump, a train of thought on the move, or an AI-guided interview — a podcast-style host that adapts to your answers and asks the follow-ups that pull your best ideas to the surface. No calendar coordination, no blank-page anxiety. Just talk the way you normally talk; Crucible handles the stumbles.",
     video: "/interview-studio-demo.mp4",
     videoCaption: "A user being interviewed by the AI interviewer, responding to questions in the studio",
   },
   {
-    num: "03",
     heading: "Step 3: Edit Automated Multi-Channel Results",
     body: "From one recording, Crucible drafts your whole week: 60-second clips, deep-dive videos, LinkedIn posts, newsletters, and blog articles — all in your voice. Then you’re in control. Review any draft and approve or rewrite it, or open the transcript and click any word to cut it — the video re-renders to match your edits. No timeline scrubbing, no re-recording.",
     images: [
@@ -36,9 +33,9 @@ const steps = [
     ],
   },
   {
-    num: "04",
     heading: "Step 4: Publish and monitor your brand growth",
     body: "Ship everything from your dashboard. Download the finished files, or connect LinkedIn and publish posts straight from Crucible. Every campaign compounds: consistent weekly presence is what turns the market’s attention into trust — and trust into growth you can watch in your analytics.",
+    watchLabel: "Watch a final cut",
     video: "/demo-clip-final.mp4",
     videoCaption: "The final short clip, lightly edited through the transcript tool and ready to publish",
     image: "/published-post.webp",
@@ -99,19 +96,27 @@ const howToSteps = [
     </section>
 
     <section class="hiw-steps">
-      <div class="wrap hiw-wrap">
+      <div class="wrap hiw-steps-wrap">
         {
           steps.map((step, i) => (
-            <div class:list={["step", { "step--flip": i % 2 === 1 }]}>
+            <div class="step">
               <div class="step-copy reveal">
-                <p class="step-num">{step.num}</p>
                 <h2>{step.heading}</h2>
                 <p class="step-body">{step.body}</p>
+                {
+                  step.watchLabel && (
+                    <p class="step-action">
+                      <button class="btn btn--outline" type="button" data-video-open={`final-cut-${i}`}>
+                        {step.watchLabel}
+                      </button>
+                    </p>
+                  )
+                }
               </div>
               <div class="step-media reveal">
                 {
-                  step.video && (
-                    <figure class="media-frame">
+                  step.video && !step.watchLabel && (
+                    <figure class="media-full">
                       <video controls playsinline preload="metadata">
                         <source src={step.video} type="video/mp4" />
                         Your browser does not support the video tag.
@@ -122,7 +127,7 @@ const howToSteps = [
                 }
                 {
                   step.image && !step.images && (
-                    <figure class="media-frame">
+                    <figure class:list={["media-full", { "media-portrait": step.watchLabel }]}>
                       <img src={step.image} alt={step.imageAlt} loading="lazy" />
                       <figcaption>{step.imageAlt}</figcaption>
                     </figure>
@@ -130,10 +135,10 @@ const howToSteps = [
                 }
                 {
                   step.images && (
-                    <div class="media-pair">
+                    <div class="media-stack">
                       {
                         step.images.map((img) => (
-                          <figure class="media-frame">
+                          <figure class="media-full">
                             <img src={img.src} alt={img.alt} loading="lazy" />
                             <figcaption>{img.alt}</figcaption>
                           </figure>
@@ -142,7 +147,27 @@ const howToSteps = [
                     </div>
                   )
                 }
+                {
+                  step.watchLabel && step.video && (
+                    <dialog class="video-modal" id={`final-cut-${i}`}>
+                      <div class="video-modal-inner">
+                        <button class="video-modal-close" type="button" data-video-close aria-label="Close video">
+                          ✕
+                        </button>
+                        <video controls playsinline preload="metadata">
+                          <source src={step.video} type="video/mp4" />
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                    </dialog>
+                  )
+                }
               </div>
+              {
+                i < steps.length - 1 && (
+                  <div class="step-connector reveal" aria-hidden="true"><span></span>↓<span></span></div>
+                )
+              }
             </div>
           ))
         }
@@ -153,6 +178,24 @@ const howToSteps = [
   </main>
   <Footer />
 </Layout>
+
+<script>
+  for (const dialog of document.querySelectorAll<HTMLDialogElement>("dialog.video-modal")) {
+    const openers = document.querySelectorAll<HTMLElement>(`[data-video-open="${dialog.id}"]`);
+    const closeBtn = dialog.querySelector<HTMLElement>("[data-video-close]");
+
+    for (const opener of openers) {
+      opener.addEventListener("click", () => dialog.showModal());
+    }
+    closeBtn?.addEventListener("click", () => dialog.close());
+    dialog.addEventListener("click", (e) => {
+      if (e.target === dialog) dialog.close();
+    });
+    dialog.addEventListener("close", () => {
+      dialog.querySelector("video")?.pause();
+    });
+  }
+</script>
 
 <style>
   .hiw-hero {
@@ -200,39 +243,32 @@ const howToSteps = [
   }
 
   .hiw-steps {
-    padding: 96px 0 0;
-    display: grid;
-    gap: 88px;
+    padding: 112px 0 0;
+  }
+
+  .hiw-steps-wrap {
+    max-width: 1040px;
   }
 
   .step {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 48px;
-    align-items: center;
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
 
-  .step--flip .step-copy {
-    order: 2;
+  .step + .step {
+    margin-top: 120px;
   }
 
-  .step--flip .step-media {
-    order: 1;
-  }
-
-  .step-num {
-    margin: 0 0 16px;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--fin);
+  .step-copy {
+    max-width: 44rem;
+    margin: 0 auto;
+    text-align: center;
   }
 
   .step h2 {
     margin: 0;
-    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-size: clamp(1.5rem, 3vw, 2.125rem);
     font-weight: 540;
     line-height: 1.05;
     letter-spacing: -0.02em;
@@ -240,27 +276,34 @@ const howToSteps = [
   }
 
   .step-body {
-    margin: 16px 0 0;
+    margin: 16px auto 0;
     font-size: 1rem;
     color: var(--ink-60);
+    text-align: left;
   }
 
-  .media-frame {
-    margin: 0;
+  .step-action {
+    margin: 28px 0 0;
+  }
+
+  .media-full {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 960px;
     border: 1px solid var(--oat);
     border-radius: var(--radius-container);
     background: var(--surface);
-    box-shadow: var(--shadow-whisper);
+    box-shadow: var(--shadow-lift);
     overflow: hidden;
   }
 
-  .media-frame img {
+  .media-full img {
     display: block;
     width: 100%;
     height: auto;
   }
 
-  .media-frame video {
+  .media-full video {
     display: block;
     width: 100%;
     height: auto;
@@ -268,45 +311,104 @@ const howToSteps = [
     background: var(--ink);
   }
 
-  .media-frame figcaption {
-    padding: 10px 14px;
+  .media-full figcaption {
+    padding: 12px 16px;
     border-top: 1px solid var(--oat);
     background: var(--canvas);
     font-size: 0.8125rem;
     color: var(--ink-50);
   }
 
-  .media-pair {
+  .media-stack {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    align-items: start;
+    gap: 32px;
   }
 
-  @media (max-width: 900px) {
-    .step {
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
+  .media-portrait {
+    max-width: 420px;
+  }
 
-    .step--flip .step-copy,
-    .step--flip .step-media {
-      order: initial;
-    }
+  .step-connector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    color: var(--sand);
+    font-size: 1rem;
+  }
 
-    .hiw-steps {
-      gap: 64px;
-      padding-top: 64px;
-    }
+  .step-connector span {
+    width: 72px;
+    height: 1px;
+    background: var(--oat);
+  }
 
-    .media-pair {
-      grid-template-columns: 1fr;
-    }
+  .video-modal {
+    width: min(920px, calc(100vw - 48px));
+    max-width: none;
+    padding: 0;
+    border: 1px solid var(--oat);
+    border-radius: var(--radius-container);
+    background: var(--surface);
+    box-shadow: var(--shadow-lift);
+  }
+
+  .video-modal::backdrop {
+    background: rgb(17 17 17 / 0.6);
+  }
+
+  .video-modal-inner {
+    position: relative;
+    padding: 12px;
+  }
+
+  .video-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--oat);
+    border-radius: var(--radius-control);
+    background: var(--canvas);
+    color: var(--ink);
+    font-size: 0.875rem;
+    cursor: pointer;
+  }
+
+  .video-modal-close:hover {
+    background: var(--wash);
+  }
+
+  .video-modal video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-control);
+    background: var(--ink);
   }
 
   @media (max-width: 640px) {
     .hiw-hero {
       padding: 64px 0 0;
+    }
+
+    .hiw-steps {
+      padding-top: 80px;
+    }
+
+    .step + .step {
+      margin-top: 88px;
+    }
+
+    .video-modal-close {
+      top: 16px;
+      right: 16px;
     }
   }
 </style>
