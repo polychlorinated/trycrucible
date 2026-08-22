@@ -84,3 +84,38 @@ export function faqPageSchema(faqs: FaqItem[]) {
     })),
   };
 }
+
+export interface HowToStep {
+  name: string;
+  text: string;
+  image?: string;
+  video?: string;
+  videoName?: string;
+}
+
+export function howToSchema(name: string, description: string, steps: HowToStep[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name,
+    description,
+    step: steps.map((s) => {
+      const step: Record<string, unknown> = {
+        "@type": "HowToStep",
+        name: s.name,
+        text: s.text,
+      };
+      if (s.image) {
+        step.image = { "@type": "ImageObject", url: new URL(s.image, SITE_URL).href };
+      }
+      if (s.video) {
+        step.video = {
+          "@type": "VideoObject",
+          name: s.videoName ?? s.name,
+          contentUrl: new URL(s.video, SITE_URL).href,
+        };
+      }
+      return step;
+    }),
+  };
+}

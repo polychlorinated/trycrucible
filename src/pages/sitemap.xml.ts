@@ -4,6 +4,7 @@ const SITE_URL = "https://trycrucible.com";
 
 const staticRoutes = [
   { path: "/", priority: "1.0" },
+  { path: "/how-it-works/", priority: "0.9" },
   { path: "/for/founders/", priority: "0.8" },
   { path: "/for/consultants/", priority: "0.8" },
   { path: "/vs/opusclip/", priority: "0.8" },

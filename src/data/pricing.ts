@@ -21,7 +21,7 @@ export const pricingPlans: PricingPlan[] = [
     badge: null,
     blurb: "Turn one weekly 10-minute brain dump into a full week of content.",
     features: [
-      "4 Complete Weekly Campaigns / mo ($12.25/campaign)",
+      "4 Complete Weekly Campaigns / mo",
       "1 Brand Voice Profile",
       "1 User Seat",
       "Short video clips, deep dives, and multi-channel written posts",
@@ -38,7 +38,7 @@ export const pricingPlans: PricingPlan[] = [
     badge: "Most Popular",
     blurb: "The full output engine for serious brands — weekly scale plus social research.",
     features: [
-      "16 Complete Campaigns / mo ($9.31/campaign)",
+      "16 Complete Campaigns / mo",
       "Includes Social Research & Competitor Gap Engine",
       "1 Brand Voice Profile",
       "Priority Video Processing",
