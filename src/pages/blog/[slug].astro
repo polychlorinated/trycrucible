@@ -1,0 +1,294 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import JsonLd from "../../components/JsonLd.astro";
+import { getCollection, render } from "astro:content";
+import { organizationSchema, webPageSchema } from "../../data/seo";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
+const words = post.body?.split(/\s+/).filter(Boolean).length ?? 0;
+const readingMinutes = Math.max(1, Math.round(words / 200));
+
+const dateFmt = new Intl.DateTimeFormat("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: post.data.title,
+  description: post.data.description,
+  ...(post.data.heroImage ? { image: new URL(post.data.heroImage, Astro.site).href } : {}),
+  datePublished: post.data.publishDate.toISOString(),
+  ...(post.data.updatedDate ? { dateModified: post.data.updatedDate.toISOString() } : {}),
+  author: { "@type": "Person", name: post.data.author },
+  publisher: { "@type": "Organization", name: "Crucible", logo: { "@type": "ImageObject", url: new URL("/flame-icon.png", Astro.site).href } },
+  mainEntityOfPage: pageUrl,
+  articleSection: post.data.tags[0] ?? undefined,
+};
+---
+
+<Layout title={`${post.data.title} — Crucible Blog`} description={post.data.description}>
+  <Fragment slot="head">
+    <JsonLd data={organizationSchema()} />
+    <JsonLd data={webPageSchema(pageUrl, post.data.title, post.data.description)} />
+    <JsonLd data={articleSchema} />
+    <link rel="alternate" type="application/rss+xml" title="Crucible Blog" href="/rss.xml" />
+  </Fragment>
+  <Header />
+  <main>
+    <article class="post">
+      <div class="wrap post-wrap">
+        <a class="post-back reveal" href="/blog/">← All posts</a>
+        <p class="post-meta reveal">
+          <span>{dateFmt.format(post.data.publishDate)}</span>
+          <span>·</span>
+          <span>{readingMinutes} min read</span>
+        </p>
+        <h1 class="post-title reveal">{post.data.title}</h1>
+        <p class="post-desc reveal">{post.data.description}</p>
+        {
+          post.data.tags.length > 0 && (
+            <p class="post-tags reveal">
+              {post.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+            </p>
+          )
+        }
+        {
+          post.data.heroImage && (
+            <img
+              class="post-hero reveal"
+              src={post.data.heroImage}
+              alt={post.data.heroImageAlt ?? ""}
+            />
+          )
+        }
+        {
+          post.data.videoUrl && (
+            <figure class="post-video reveal">
+              <video controls playsinline preload="metadata" poster={post.data.posterImage}>
+                <source src={post.data.videoUrl} />
+                Your browser does not support the video tag.
+              </video>
+            </figure>
+          )
+        }
+        <div class="blog-prose reveal">
+          <Content />
+        </div>
+        <p class="post-author reveal">— {post.data.author}</p>
+        <div class="card post-cta reveal">
+          <h2>Turn your next brain dump into a week of content.</h2>
+          <p>Record whenever inspiration strikes. Crucible handles the rest — in your voice.</p>
+          <a class="btn btn--fin" href="https://app.trycrucible.com/login">Start your first campaign free</a>
+        </div>
+      </div>
+    </article>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .post {
+    padding: 64px 0 120px;
+  }
+
+  .post-wrap {
+    max-width: 768px;
+  }
+
+  .post-back {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-50);
+    text-decoration: none;
+  }
+
+  .post-back:hover {
+    color: var(--fin-deep);
+  }
+
+  .post-meta {
+    margin: 20px 0 0;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-50);
+  }
+
+  .post-title {
+    margin: 16px 0 0;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 430;
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+
+  .post-desc {
+    margin: 16px 0 0;
+    font-size: 1.0625rem;
+    color: var(--ink-60);
+  }
+
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0 0;
+  }
+
+  .tag {
+    padding: 3px 7px;
+    border: 1px solid var(--oat);
+    border-radius: var(--radius-control);
+    background: var(--canvas);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-60);
+  }
+
+  .post-hero {
+    margin-top: 32px;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--oat);
+    border-radius: var(--radius-container);
+    box-shadow: var(--shadow-whisper);
+  }
+
+  .post-video {
+    margin: 32px 0 0;
+  }
+
+  .post-video video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    background: var(--ink);
+    border: 1px solid var(--oat);
+    border-radius: var(--radius-container);
+    box-shadow: var(--shadow-whisper);
+  }
+
+  .blog-prose {
+    margin-top: 40px;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--ink-80);
+  }
+
+  .blog-prose :global(h2) {
+    margin: 48px 0 0;
+    font-size: 1.5rem;
+    font-weight: 540;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+
+  .blog-prose :global(p) {
+    margin: 16px 0 0;
+  }
+
+  .blog-prose :global(ul),
+  .blog-prose :global(ol) {
+    margin: 16px 0 0;
+    padding-left: 24px;
+    display: grid;
+    gap: 8px;
+  }
+
+  .blog-prose :global(li)::marker {
+    color: var(--fin);
+  }
+
+  .blog-prose :global(strong) {
+    color: var(--ink);
+    font-weight: 560;
+  }
+
+  .blog-prose :global(a) {
+    color: var(--fin-deep);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .blog-prose :global(blockquote) {
+    margin: 24px 0 0;
+    padding: 4px 0 4px 20px;
+    border-left: 3px solid var(--fin);
+    color: var(--ink-60);
+    font-style: italic;
+  }
+
+  .blog-prose :global(code) {
+    padding: 2px 6px;
+    border-radius: var(--radius-control);
+    background: var(--wash);
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+  }
+
+  .post-author {
+    margin: 48px 0 0;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    letter-spacing: 0.04em;
+    color: var(--ink-60);
+  }
+
+  .post-cta {
+    margin-top: 40px;
+    padding: 32px;
+    text-align: center;
+  }
+
+  .post-cta h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 540;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .post-cta p {
+    margin: 12px 0 0;
+    font-size: 0.9375rem;
+    color: var(--ink-60);
+  }
+
+  .post-cta .btn {
+    margin-top: 24px;
+  }
+
+  @media (max-width: 640px) {
+    .post {
+      padding: 48px 0 88px;
+    }
+  }
+</style>

@@ -1,0 +1,180 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import JsonLd from "../../components/JsonLd.astro";
+import { getCollection } from "astro:content";
+import { organizationSchema, webSiteSchema, webPageSchema } from "../../data/seo";
+
+const PAGE_URL = "https://trycrucible.com/blog/";
+const title = "Blog — The Crucible Journal";
+const description =
+  "Notes on founder-led content: turning raw recordings into clips, deep dives, and posts that sound like you.";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime()
+);
+
+const dateFmt = new Intl.DateTimeFormat("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+---
+
+<Layout title={title} description={description}>
+  <Fragment slot="head">
+    <JsonLd data={organizationSchema()} />
+    <JsonLd data={webSiteSchema()} />
+    <JsonLd data={webPageSchema(PAGE_URL, title, description)} />
+    <link rel="alternate" type="application/rss+xml" title="Crucible Blog" href="/rss.xml" />
+  </Fragment>
+  <Header />
+  <main>
+    <section class="blog-hero">
+      <div class="wrap blog-wrap">
+        <p class="eyebrow reveal">The Crucible Journal</p>
+        <h1 class="blog-title reveal">
+          Notes on content that <em>actually ships.</em>
+        </h1>
+        <p class="blog-lede reveal">
+          Founder-led content, raw recordings, and the systems that turn thoughts into a week of
+          shipped work.
+        </p>
+      </div>
+    </section>
+    <section class="blog-list">
+      <div class="wrap blog-wrap">
+        {
+          posts.map((post) => (
+            <article class="card post-card reveal">
+              <p class="post-meta">
+                <span>{dateFmt.format(post.data.publishDate)}</span>
+                {
+                  post.data.tags.map((tag) => <span class="tag">{tag}</span>)
+                }
+              </p>
+              <h2>
+                <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+              </h2>
+              <p class="post-excerpt">{post.data.description}</p>
+              <a class="post-read" href={`/blog/${post.id}/`}>Read →</a>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .blog-hero {
+    padding: 88px 0 0;
+  }
+
+  .blog-wrap {
+    max-width: 768px;
+  }
+
+  .blog-title {
+    margin: 0;
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 430;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+
+  .blog-title em {
+    font-style: normal;
+    color: var(--fin);
+  }
+
+  .blog-lede {
+    margin: 20px 0 0;
+    max-width: 34rem;
+    font-size: 1.0625rem;
+    color: var(--ink-60);
+  }
+
+  .blog-list {
+    padding: 48px 0 120px;
+    display: grid;
+    gap: 20px;
+  }
+
+  .blog-list .wrap {
+    display: grid;
+    gap: 20px;
+  }
+
+  .post-card h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 540;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .post-card h2 a {
+    text-decoration: none;
+  }
+
+  .post-card h2 a:hover {
+    color: var(--fin-deep);
+  }
+
+  .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 14px;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-50);
+  }
+
+  .tag {
+    padding: 3px 7px;
+    border: 1px solid var(--oat);
+    border-radius: var(--radius-control);
+    background: var(--canvas);
+    color: var(--ink-60);
+  }
+
+  .post-excerpt {
+    margin: 10px 0 0;
+    font-size: 0.9375rem;
+    color: var(--ink-60);
+  }
+
+  .post-read {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    margin-top: 16px;
+    font-size: 0.875rem;
+    font-weight: 560;
+    color: var(--fin-deep);
+    text-decoration: none;
+  }
+
+  .post-read:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  @media (max-width: 640px) {
+    .blog-hero {
+      padding: 64px 0 0;
+    }
+
+    .blog-list {
+      padding: 32px 0 88px;
+    }
+  }
+</style>

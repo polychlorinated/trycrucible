@@ -28,6 +28,20 @@ pnpm preview          # preview the production build
 pnpm astro check      # typecheck .astro files
 ```
 
+## Blog
+
+- Posts live in `src/content/blog/*.md` (Astro Content Collections,
+  schema in `src/content.config.ts`). Frontmatter: `title`, `description`,
+  `publishDate`, `tags`, `author`, optional `heroImage`/`heroImageAlt`,
+  `videoUrl`, `posterImage`.
+- `/blog/` index, `/blog/<slug>/` post pages, `/rss.xml`, and the sitemap all
+  regenerate at build time from the collection.
+- Media is referenced by URL (hosted by the publisher — e.g. Supabase
+  storage); the site does not store uploads.
+- The Crucible app can publish posts programmatically: `POST /api/publish`
+  (Cloudflare Pages Function in `functions/api/publish.ts`). Full contract in
+  [`docs/publishing-api.md`](./docs/publishing-api.md).
+
 ## Deployment (Cloudflare Pages)
 
 1. Connect the repo to Cloudflare Pages, or run:

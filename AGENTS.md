@@ -7,3 +7,11 @@
 - Content copy is owned by the homepage: do not rewrite pricing numbers, FAQ answers, or feature lists without the product owner.
 - Before finishing work, run `pnpm astro check` and `pnpm build`.
 - Deployment target is Cloudflare Pages (static output); `public/_headers` owns security/cache headers.
+
+## Blog
+
+- Blog posts are Markdown in `src/content/blog/` (schema: `src/content.config.ts`). Frontmatter fields: title, description, publishDate, tags, author, optional heroImage/heroImageAlt/videoUrl/posterImage.
+- Post content is the publisher's copy — do not rewrite prose; only fix frontmatter, formatting, or broken markdown.
+- Media is by-reference (http(s) URLs); never commit binary media unless explicitly asked.
+- The app-push contract is `functions/api/publish.ts` + `docs/publishing-api.md` — update both together when the schema changes.
+- After adding/editing posts, run `pnpm astro check` and `pnpm build`.
