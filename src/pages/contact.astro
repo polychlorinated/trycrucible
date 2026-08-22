@@ -2,12 +2,22 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import JsonLd from "../components/JsonLd.astro";
+import { organizationSchema, webPageSchema } from "../data/seo";
+
+const PAGE_URL = "https://trycrucible.com/contact/";
+const title = "Contact — Crucible";
+const description = "Get in touch with the Crucible team.";
 ---
 
 <Layout
-  title="Contact — Crucible"
-  description="Get in touch with the Crucible team."
+  title={title}
+  description={description}
 >
+  <Fragment slot="head">
+    <JsonLd data={organizationSchema()} />
+    <JsonLd data={webPageSchema(PAGE_URL, title, description)} />
+  </Fragment>
   <Header />
   <main>
     <section class="contact-hero">

@@ -1,0 +1,79 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import PageHero from "../../components/PageHero.astro";
+import BenefitGrid from "../../components/BenefitGrid.astro";
+import Faq from "../../components/Faq.astro";
+import FinalCta from "../../components/FinalCta.astro";
+import Footer from "../../components/Footer.astro";
+import JsonLd from "../../components/JsonLd.astro";
+import type { FaqItem } from "../../data/faq";
+import { organizationSchema, webPageSchema, faqPageSchema } from "../../data/seo";
+
+const PAGE_URL = "https://trycrucible.com/for/consultants/";
+const title = "For Consultants — Thought leadership that wins retainers | Crucible";
+const description =
+  "Consultants: turn your client conversations and brain dumps into clips, deep dives, and posts that demonstrate exactly how you think — without a content team.";
+
+const benefits = [
+  {
+    title: "Demonstrate your thinking",
+    body: "Your best insights come out in conversation. Crucible captures them and shapes them into shareable proof of expertise.",
+  },
+  {
+    title: "Zero production overhead",
+    body: "No videographer, editor, or writer to manage. One recording becomes a finished week of content.",
+  },
+  {
+    title: "Your domain, your voice",
+    body: "Upload style guides, PDFs, and research links — the context knowledge base keeps every draft on your rails.",
+  },
+  {
+    title: "Clip what lands",
+    body: "Remix Mode extracts the hooks and turns long sessions into 60-second clips that pull prospects in.",
+  },
+];
+
+const faqs: FaqItem[] = [
+  {
+    q: "Can it match my firm’s tone?",
+    a: "You approve the brand voice profile up front and can edit it any time. Upload your style guides to keep every draft in your house style.",
+  },
+  {
+    q: "Can I run multiple client brands?",
+    a: "Today, one brand per workspace. Multi-brand workspaces and team permissions are on the way — contact us for early access.",
+  },
+  {
+    q: "How is this different from hiring a writer?",
+    a: "Writers cost $2,000–$5,000 a month and take days to turn drafts. Crucible costs $49–$149 a month and works from your own spoken words in minutes.",
+  },
+  {
+    q: "Does it publish for me?",
+    a: "You can export the files, or connect LinkedIn and publish straight from Crucible.",
+  },
+];
+---
+
+<Layout title={title} description={description}>
+  <Fragment slot="head">
+    <JsonLd data={organizationSchema()} />
+    <JsonLd data={webPageSchema(PAGE_URL, title, description)} />
+    <JsonLd data={faqPageSchema(faqs)} />
+  </Fragment>
+  <Header />
+  <main>
+    <PageHero
+      eyebrow="For consultants"
+      title="Thought leadership"
+      em="that wins retainers."
+      lede="Clients buy expertise they can hear. Turn your client conversations and brain dumps into clips, deep dives, and posts that demonstrate exactly how you think — without adding a content team to your practice."
+      ctaLabel="Start your first campaign free"
+      secondaryLabel="How it works"
+      secondaryHref="/#how-it-works"
+    />
+    <BenefitGrid eyebrow="Why consultants" title="Your practice," em="on the record." cards={benefits} />
+    <Faq id="faq" eyebrow="Consultant FAQ" title="Consultants," em="answered." faqs={faqs} />
+    <FinalCta />
+  </main>
+  <Footer />
+</Layout>

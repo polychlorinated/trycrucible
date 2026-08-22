@@ -2,7 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "./Header.astro";
 import Footer from "./Footer.astro";
+import JsonLd from "./JsonLd.astro";
 import type { LegalBlock } from "../lib/legal-types";
+import { organizationSchema, webPageSchema } from "../data/seo";
 
 interface Props {
   title: string;
@@ -13,9 +15,14 @@ interface Props {
 }
 
 const { title, description, updated, intro, blocks } = Astro.props;
+const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
 ---
 
 <Layout title={`${title} — Crucible`} description={description}>
+  <Fragment slot="head">
+    <JsonLd data={organizationSchema()} />
+    <JsonLd data={webPageSchema(pageUrl, `${title} — Crucible`, description)} />
+  </Fragment>
   <Header />
   <main>
     <section class="legal-hero">

@@ -1,0 +1,96 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  em: string;
+  lede: string;
+  ctaLabel?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+  microtrust?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  em,
+  lede,
+  ctaLabel = "Start free",
+  secondaryLabel,
+  secondaryHref,
+  microtrust = "No credit card · 1 free credit for your first project · No watermarks",
+} = Astro.props;
+---
+
+<section class="page-hero">
+  <div class="wrap page-hero-wrap">
+    <p class="eyebrow reveal">{eyebrow}</p>
+    <h1 class="page-hero-title reveal">
+      {title} <em>{em}</em>
+    </h1>
+    <p class="page-hero-lede reveal">{lede}</p>
+    <div class="page-hero-ctas reveal">
+      <a class="btn btn--fin" href="https://app.trycrucible.com/login">{ctaLabel}</a>
+      {
+        secondaryLabel && (
+          <a class="btn btn--outline" href={secondaryHref}>{secondaryLabel}</a>
+        )
+      }
+    </div>
+    <p class="page-hero-micro reveal">{microtrust}</p>
+  </div>
+</section>
+
+<style>
+  .page-hero {
+    padding: 88px 0 0;
+  }
+
+  .page-hero-wrap {
+    max-width: 820px;
+    text-align: center;
+  }
+
+  .page-hero-title {
+    margin: 0;
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    font-weight: 430;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+
+  .page-hero-title em {
+    font-style: normal;
+    color: var(--fin);
+  }
+
+  .page-hero-lede {
+    margin: 24px auto 0;
+    max-width: 36rem;
+    font-size: 1.0625rem;
+    color: var(--ink-60);
+  }
+
+  .page-hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 36px;
+  }
+
+  .page-hero-micro {
+    margin: 20px 0 0;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    color: var(--ink-50);
+  }
+
+  @media (max-width: 640px) {
+    .page-hero {
+      padding: 64px 0 0;
+    }
+  }
+</style>

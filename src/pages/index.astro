@@ -11,12 +11,21 @@ import Pricing from "../components/Pricing.astro";
 import Faq from "../components/Faq.astro";
 import FinalCta from "../components/FinalCta.astro";
 import Footer from "../components/Footer.astro";
+import JsonLd from "../components/JsonLd.astro";
+import { homeFaqs } from "../data/faq";
+import { organizationSchema, webSiteSchema, softwareApplicationSchema, faqPageSchema } from "../data/seo";
 ---
 
 <Layout
   title="Crucible — Brain dump your ideas in 10 minutes. Check every content box for the week."
   description="Share your raw running commentary, and Crucible reworks your exact words into 60-second social clips, 5–10 minute deep-dive thought pieces, and ready-to-publish written posts."
 >
+  <Fragment slot="head">
+    <JsonLd data={organizationSchema()} />
+    <JsonLd data={webSiteSchema()} />
+    <JsonLd data={softwareApplicationSchema()} />
+    <JsonLd data={faqPageSchema(homeFaqs)} />
+  </Fragment>
   <Header />
   <main>
     <Hero />
@@ -26,7 +35,7 @@ import Footer from "../components/Footer.astro";
     <WhatYouGet />
     <SampleOutput />
     <Pricing />
-    <Faq />
+    <Faq id="faq" eyebrow="FAQ" title="Questions," em="answered." faqs={homeFaqs} />
     <FinalCta />
   </main>
   <Footer />

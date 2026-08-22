@@ -1,0 +1,79 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import PageHero from "../../components/PageHero.astro";
+import BenefitGrid from "../../components/BenefitGrid.astro";
+import Faq from "../../components/Faq.astro";
+import FinalCta from "../../components/FinalCta.astro";
+import Footer from "../../components/Footer.astro";
+import JsonLd from "../../components/JsonLd.astro";
+import type { FaqItem } from "../../data/faq";
+import { organizationSchema, webPageSchema, faqPageSchema } from "../../data/seo";
+
+const PAGE_URL = "https://trycrucible.com/for/founders/";
+const title = "For Founders — Thought leadership in 10 minutes a week | Crucible";
+const description =
+  "Founder-led content without the 10-hour content week. Record a 10-minute brain dump and Crucible turns it into shorts, deep dives, and posts in your voice.";
+
+const benefits = [
+  {
+    title: "Your voice, not a ghostwriter’s",
+    body: "Crucible reworks your exact words and phrases — the market hears you, not an agency’s version of you.",
+  },
+  {
+    title: "Ten minutes, once a week",
+    body: "The AI interviewer draws the ideas out of your head. When you’re building a company, recording beats writing.",
+  },
+  {
+    title: "A week of output per recording",
+    body: "60-second clips for LinkedIn, TikTok, and Shorts, a deep-dive video, and written posts — all from one session.",
+  },
+  {
+    title: "Authority that compounds",
+    body: "Weekly presence is what turns the market’s attention into trust — and trust into customers, partners, and investors.",
+  },
+];
+
+const faqs: FaqItem[] = [
+  {
+    q: "I’m not a content creator. Will this really work for me?",
+    a: "That’s exactly who it’s built for. The AI interviewer asks the questions, so you just answer. The stumbles, restarts, and “ums” are cleaned up automatically.",
+  },
+  {
+    q: "How much time does it actually take?",
+    a: "About ten minutes of talking per campaign. The editing and writing happen from your transcript — no timeline, no desktop editing.",
+  },
+  {
+    q: "Will it sound like me, or like AI?",
+    a: "Like you. Your brand voice profile plus your exact words drive every draft, and you can edit anything before it goes out.",
+  },
+  {
+    q: "I already have a founder brand — can it keep up?",
+    a: "Yes. Upload your style guides and context documents and the knowledge base keeps your voice consistent as you scale.",
+  },
+];
+---
+
+<Layout title={title} description={description}>
+  <Fragment slot="head">
+    <JsonLd data={organizationSchema()} />
+    <JsonLd data={webPageSchema(PAGE_URL, title, description)} />
+    <JsonLd data={faqPageSchema(faqs)} />
+  </Fragment>
+  <Header />
+  <main>
+    <PageHero
+      eyebrow="For founders"
+      title="Founder-led content"
+      em="on autopilot."
+      lede="Trust is the currency of modern growth, and your story is your unfair advantage. Record a 10-minute brain dump whenever inspiration strikes — Crucible turns it into shorts, deep dives, and posts that sound exactly like you. No writers room, no camera skills, no 10-hour content week."
+      ctaLabel="Start your first campaign free"
+      secondaryLabel="How it works"
+      secondaryHref="/#how-it-works"
+    />
+    <BenefitGrid eyebrow="Why founders" title="Built for the person" em="building the brand." cards={benefits} />
+    <Faq id="faq" eyebrow="Founder FAQ" title="Founders," em="answered." faqs={faqs} />
+    <FinalCta />
+  </main>
+  <Footer />
+</Layout>

@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://trycrucible.com/sitemap.xml

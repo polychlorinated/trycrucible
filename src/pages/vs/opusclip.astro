@@ -1,0 +1,87 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import PageHero from "../../components/PageHero.astro";
+import ComparisonTable from "../../components/ComparisonTable.astro";
+import BenefitGrid from "../../components/BenefitGrid.astro";
+import Faq from "../../components/Faq.astro";
+import FinalCta from "../../components/FinalCta.astro";
+import Footer from "../../components/Footer.astro";
+import JsonLd from "../../components/JsonLd.astro";
+import type { FaqItem } from "../../data/faq";
+import { organizationSchema, webPageSchema, faqPageSchema } from "../../data/seo";
+
+const PAGE_URL = "https://trycrucible.com/vs/opusclip/";
+const title = "Crucible vs OpusClip — Why teams switch | Crucible";
+const description =
+  "OpusClip cuts long videos into viral clips. Crucible starts earlier: it interviews you, researches your market, and turns one recording into clips, deep dives, and written posts.";
+
+const rows = [
+  { dimension: "Core job", crucible: "Raw brain dump → a week of content", rival: "Long video → short viral clips" },
+  { dimension: "AI interviewer", crucible: "Yes — draws your best ideas out", rival: "No — you bring the finished video" },
+  { dimension: "Editing model", crucible: "Narrative-aware Preserve & Remix modes", rival: "Engagement-score auto clipping" },
+  { dimension: "Outputs", crucible: "Clips + deep dives + written posts", rival: "Short clips" },
+  { dimension: "Social research & gap engine", crucible: "Included on Pro", rival: "Not included" },
+  { dimension: "Written content", crucible: "LinkedIn, newsletters, blog drafts", rival: "Captions only" },
+  { dimension: "Pricing", crucible: "$49 Starter · $149 Pro · $19 single credits", rival: "Free tier + paid subscription plans" },
+];
+
+const benefits = [
+  {
+    title: "Start before the camera",
+    body: "If you have an idea rather than a finished video, Crucible gets you there: an AI interviewer turns your brain dump into the raw material.",
+  },
+  {
+    title: "Narrative beats loudness",
+    body: "Clips are cut where the story pivots — not where the volume spikes.",
+  },
+  {
+    title: "One pass, every format",
+    body: "Clips are the start: deep dives and written posts come from the same recording.",
+  },
+];
+
+const faqs: FaqItem[] = [
+  {
+    q: "Is Crucible just another clip cutter?",
+    a: "No. Clipping is one step in a full pipeline: an AI interviewer draws the material out, social research informs the angles, and one recording becomes clips, deep dives, and written posts.",
+  },
+  {
+    q: "Can I bring my existing videos over from OpusClip?",
+    a: "Yes — upload your existing recordings and Crucible will process them against your brand voice profile.",
+  },
+  {
+    q: "Does Crucible cut clips automatically?",
+    a: "Remix Mode extracts viral hooks and splits your recording into high-impact clips based on narrative context, not arbitrary loudness. Preserve Mode keeps the full conversational flow.",
+  },
+  {
+    q: "What does Crucible cost compared to OpusClip?",
+    a: "Crucible starts at $49/month for 4 complete weekly campaigns, $149/month for 16 campaigns with social research, or $19 for a single campaign credit. Your first project is free.",
+  },
+];
+---
+
+<Layout title={title} description={description}>
+  <Fragment slot="head">
+    <JsonLd data={organizationSchema()} />
+    <JsonLd data={webPageSchema(PAGE_URL, title, description)} />
+    <JsonLd data={faqPageSchema(faqs)} />
+  </Fragment>
+  <Header />
+  <main>
+    <PageHero
+      eyebrow="Comparison"
+      title="Crucible vs"
+      em="OpusClip"
+      lede="OpusClip cuts long videos into viral clips. Crucible starts earlier: it interviews you, researches your market, and turns one recording into clips, deep dives, and written posts. Here’s how they compare."
+      ctaLabel="Start your first campaign free"
+      secondaryLabel="See pricing"
+      secondaryHref="/#pricing"
+    />
+    <ComparisonTable rivalName="OpusClip" rows={rows} />
+    <BenefitGrid eyebrow="Why switch" title="Where Crucible" em="goes further." cards={benefits} />
+    <Faq id="faq" eyebrow="Comparison FAQ" title="OpusClip," em="answered." faqs={faqs} />
+    <FinalCta />
+  </main>
+  <Footer />
+</Layout>

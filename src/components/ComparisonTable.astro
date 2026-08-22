@@ -1,0 +1,122 @@
+---
+interface Row {
+  dimension: string;
+  crucible: string;
+  rival: string;
+}
+
+interface Props {
+  rivalName: string;
+  rows: Row[];
+}
+
+const { rivalName, rows } = Astro.props;
+---
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head section-head--center reveal">
+      <p class="eyebrow">Side by side</p>
+      <h2 class="display">How they <em>compare.</em></h2>
+    </div>
+    <div class="cmp-scroll reveal">
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th scope="col" class="cmp-dim-head"></th>
+            <th scope="col" class="cmp-crucible-head">Crucible</th>
+            <th scope="col" class="cmp-rival-head">{rivalName}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr>
+              <th scope="row" class="cmp-dim">{row.dimension}</th>
+              <td class="cmp-crucible">{row.crucible}</td>
+              <td class="cmp-rival">{row.rival}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cmp-scroll {
+    margin-top: 56px;
+    overflow-x: auto;
+    border: 1px solid var(--oat);
+    border-radius: var(--radius-container);
+    background: var(--surface);
+    box-shadow: var(--shadow-whisper);
+  }
+
+  .cmp-table {
+    width: 100%;
+    min-width: 640px;
+    border-collapse: collapse;
+    text-align: left;
+  }
+
+  .cmp-table th,
+  .cmp-table td {
+    padding: 16px 20px;
+    border-top: 1px solid var(--oat);
+    vertical-align: top;
+  }
+
+  .cmp-table thead th {
+    border-top: 0;
+    padding: 14px 20px;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .cmp-crucible-head {
+    color: var(--fin-deep);
+  }
+
+  .cmp-rival-head {
+    color: var(--ink-50);
+  }
+
+  .cmp-dim {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-60);
+    background: var(--canvas);
+    min-width: 160px;
+  }
+
+  .cmp-crucible {
+    background: var(--fin-tint);
+    border-left: 2px solid var(--fin);
+    border-right: 2px solid var(--fin);
+    font-size: 0.9375rem;
+    color: var(--ink);
+    min-width: 200px;
+  }
+
+  .cmp-crucible-head {
+    background: var(--fin-tint);
+  }
+
+  .cmp-rival {
+    font-size: 0.9375rem;
+    color: var(--ink-60);
+    min-width: 200px;
+  }
+
+  @media (max-width: 640px) {
+    .cmp-scroll {
+      margin-top: 40px;
+    }
+  }
+</style>

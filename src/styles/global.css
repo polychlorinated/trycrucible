@@ -270,9 +270,11 @@ a {
   color: var(--report-red);
 }
 
-/* ---------- Scroll reveal ---------- */
+/* ---------- Scroll reveal ----------
+   Reveal hiding is scoped behind the `js` class (added in <head>) so
+   no-JS visitors and crawlers always see full, visible content. */
 
-.reveal {
+.js .reveal {
   opacity: 0;
   transform: translateY(16px);
   transition:
@@ -290,7 +292,7 @@ a {
     scroll-behavior: auto;
   }
 
-  .reveal {
+  .js .reveal {
     opacity: 1;
     transform: none;
     transition: none;

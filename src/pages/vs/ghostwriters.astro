@@ -1,0 +1,87 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import PageHero from "../../components/PageHero.astro";
+import ComparisonTable from "../../components/ComparisonTable.astro";
+import BenefitGrid from "../../components/BenefitGrid.astro";
+import Faq from "../../components/Faq.astro";
+import FinalCta from "../../components/FinalCta.astro";
+import Footer from "../../components/Footer.astro";
+import JsonLd from "../../components/JsonLd.astro";
+import type { FaqItem } from "../../data/faq";
+import { organizationSchema, webPageSchema, faqPageSchema } from "../../data/seo";
+
+const PAGE_URL = "https://trycrucible.com/vs/ghostwriters/";
+const title = "Crucible vs Ghostwriters — Your voice, at 1/20th the cost | Crucible";
+const description =
+  "Ghostwriters cost thousands a month and take days to turn drafts. Crucible captures your own words and reworks them into a week of content in minutes.";
+
+const rows = [
+  { dimension: "Approach", crucible: "Your words, reworked by AI", rival: "A human writing on your behalf" },
+  { dimension: "Turnaround", crucible: "Minutes", rival: "Days to weeks" },
+  { dimension: "Cost", crucible: "$49–$149/mo · $19 single credits", rival: "$2,000–$5,000/month" },
+  { dimension: "Your authentic voice", crucible: "Yes — built from your recordings", rival: "Depends on how well the writer knows you" },
+  { dimension: "Video output", crucible: "Clips + deep dives + written posts", rival: "Written only" },
+  { dimension: "Iteration", crucible: "Click a word in the transcript to cut it", rival: "Back-and-forth calls and revisions" },
+  { dimension: "Interviewing", crucible: "AI interviewer, on your schedule", rival: "Scheduled interviews on their calendar" },
+];
+
+const benefits = [
+  {
+    title: "Speed without losing the voice",
+    body: "Ghostwriters take days to turn a draft. Crucible works from your own recorded words — minutes, not weeks, and it’s still you.",
+  },
+  {
+    title: "Roughly 1/20th the cost",
+    body: "Starter is $49/month versus $2,000–$5,000 for a writer. That’s a full week of content for less than one agency draft.",
+  },
+  {
+    title: "Everything stays yours to edit",
+    body: "Every caption, post, and blog draft is editable before it goes anywhere — and you can send the video back for a re-cut.",
+  },
+];
+
+const faqs: FaqItem[] = [
+  {
+    q: "How is this different from hiring a ghostwriter?",
+    a: "A ghostwriter interviews you, then rewrites you. Crucible is the interview: it records your raw words, cleans the stumbles, and builds clips and drafts from the transcript — in minutes instead of weeks.",
+  },
+  {
+    q: "Will the writing still sound human?",
+    a: "Yes. Crucible reworks your original words and phrases, so the output keeps your natural voice. You approve the brand voice profile and can edit anything.",
+  },
+  {
+    q: "What does it cost compared to a ghostwriter?",
+    a: "Ghostwriters typically run $2,000–$5,000/month. Crucible Starter is $49/month for 4 complete campaigns, Pro is $149/month for 16 with social research, and single credits are $19. Your first project is free.",
+  },
+  {
+    q: "Can I still bring in a writer when I want one?",
+    a: "Of course. Crucible hands you clean, editable drafts — many teams use it to make their writers faster and keep the authentic voice intact.",
+  },
+];
+---
+
+<Layout title={title} description={description}>
+  <Fragment slot="head">
+    <JsonLd data={organizationSchema()} />
+    <JsonLd data={webPageSchema(PAGE_URL, title, description)} />
+    <JsonLd data={faqPageSchema(faqs)} />
+  </Fragment>
+  <Header />
+  <main>
+    <PageHero
+      eyebrow="Comparison"
+      title="Crucible vs"
+      em="ghostwriters"
+      lede="Ghostwriters cost thousands a month and take days to turn drafts. Crucible captures your own words and reworks them into a week of content in minutes — here’s how they compare."
+      ctaLabel="Start your first campaign free"
+      secondaryLabel="See pricing"
+      secondaryHref="/#pricing"
+    />
+    <ComparisonTable rivalName="Ghostwriters" rows={rows} />
+    <BenefitGrid eyebrow="Why switch" title="Your voice," em="without the invoice." cards={benefits} />
+    <Faq id="faq" eyebrow="Comparison FAQ" title="Ghostwriters," em="answered." faqs={faqs} />
+    <FinalCta />
+  </main>
+  <Footer />
+</Layout>
