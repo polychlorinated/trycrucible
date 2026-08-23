@@ -15,3 +15,9 @@
 - Media is by-reference (http(s) URLs); never commit binary media unless explicitly asked.
 - The app-push contract is `functions/api/publish.ts` + `docs/publishing-api.md` — update both together when the schema changes.
 - After adding/editing posts, run `pnpm astro check` and `pnpm build`.
+
+## Comparison pages (hub & spoke)
+
+- All competitor comparison data lives in `src/data/comparisons.ts` (hubs + spokes with rows, differentiators, FAQs). Spokes render through the shared `src/pages/vs/[slug].astro` route; never create a static spoke page unless it needs bespoke layout (opusclip/ghostwriters are the existing static examples).
+- New competitor → add one entry to `comparisons` with its `hubSlug`; sitemap picks it up automatically.
+- Competitor claims must stay factual (sourced pricing/positioning); when in doubt, soften the claim.

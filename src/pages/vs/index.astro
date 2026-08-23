@@ -1,0 +1,228 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import PageHero from "../../components/PageHero.astro";
+import FinalCta from "../../components/FinalCta.astro";
+import JsonLd from "../../components/JsonLd.astro";
+import { comparisonHubs, comparisons } from "../../data/comparisons";
+import { organizationSchema, webPageSchema } from "../../data/seo";
+
+const PAGE_URL = "https://trycrucible.com/vs/";
+const title = "Crucible vs. the alternatives — Compare content tools & agencies";
+const description =
+  "Compare Crucible against social video apps, AI video generators, LinkedIn growth tools, and ghostwriting agencies — side by side, feature by feature.";
+---
+
+<Layout title={title} description={description}>
+  <Fragment slot="head">
+    <JsonLd data={organizationSchema()} />
+    <JsonLd data={webPageSchema(PAGE_URL, title, description)} />
+  </Fragment>
+  <Header />
+  <main>
+    <PageHero
+      eyebrow="Comparison hub"
+      title="Crucible vs."
+      em="the alternatives."
+      lede="Every tool solves a piece of the problem. Crucible is the system that takes you from raw thoughts to a published week of content. Compare Crucible against the tools people switch from — side by side, feature by feature."
+      ctaLabel="Start your first campaign free"
+      secondaryLabel="See pricing"
+      secondaryHref="/#pricing"
+    />
+    <section class="section">
+      <div class="wrap hub-wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Categories</p>
+          <h2 class="display">Pick your <em>battle.</em></h2>
+        </div>
+        <div class="hubs">
+          {
+            comparisonHubs.map((hub) => (
+              <article class="card hub reveal">
+                <p class="hub-label">Category</p>
+                <h3>{hub.name}</h3>
+                <p class="hub-desc">{hub.hook.split(". ")[0]}.</p>
+                <ul class="hub-spokes">
+                  {
+                    hub.spokes.map((spoke) => (
+                      <li>
+                        <a href={spoke.href}>vs {spoke.name}</a>
+                      </li>
+                    ))
+                  }
+                </ul>
+                <a class="hub-link" href={`/vs/${hub.slug}/`}>Explore the category →</a>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+    <section class="section section--wash">
+      <div class="wrap all-wrap">
+        <div class="section-head section-head--center reveal">
+          <p class="eyebrow">All comparisons</p>
+          <h2 class="display">Every head-to-head, <em>in one place.</em></h2>
+        </div>
+        <ul class="all-list reveal">
+          <li><a href="/vs/opusclip/">Crucible vs OpusClip</a></li>
+          <li><a href="/vs/ghostwriters/">Crucible vs Ghostwriters</a></li>
+          {
+            comparisons.map((c) => (
+              <li><a href={`/vs/${c.slug}/`}>Crucible vs {c.rivalName}</a></li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+    <FinalCta />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .hub-wrap {
+    max-width: 960px;
+  }
+
+  .hubs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 56px;
+  }
+
+  .hub {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hub-label {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-50);
+  }
+
+  .hub h3 {
+    margin: 8px 0 0;
+    font-size: 1.25rem;
+    font-weight: 540;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .hub-desc {
+    margin: 10px 0 0;
+    font-size: 0.9375rem;
+    color: var(--ink-60);
+  }
+
+  .hub-spokes {
+    list-style: none;
+    margin: 16px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+  }
+
+  .hub-spokes a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 0 10px;
+    border: 1px solid var(--oat);
+    border-radius: var(--radius-control);
+    background: var(--canvas);
+    font-size: 0.875rem;
+    color: var(--ink-80);
+    text-decoration: none;
+    transition: border-color 160ms var(--ease-out), color 160ms var(--ease-out);
+  }
+
+  .hub-spokes a:hover {
+    border-color: var(--fin);
+    color: var(--fin-deep);
+  }
+
+  .hub-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    margin-top: 16px;
+    font-size: 0.875rem;
+    font-weight: 560;
+    color: var(--fin-deep);
+    text-decoration: none;
+  }
+
+  .hub-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .all-wrap {
+    max-width: 720px;
+  }
+
+  .all-list {
+    list-style: none;
+    margin: 48px 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border: 1px solid var(--oat);
+    border-radius: var(--radius-container);
+    background: var(--surface);
+    box-shadow: var(--shadow-whisper);
+    overflow: hidden;
+  }
+
+  .all-list li {
+    border-top: 1px solid var(--oat);
+  }
+
+  .all-list li:nth-child(-n + 2) {
+    border-top: 0;
+  }
+
+  .all-list a {
+    display: flex;
+    align-items: center;
+    min-height: 52px;
+    padding: 0 20px;
+    font-size: 0.9375rem;
+    color: var(--ink-80);
+    text-decoration: none;
+    transition: background-color 160ms var(--ease-out);
+  }
+
+  .all-list a:hover {
+    background: var(--canvas);
+    color: var(--fin-deep);
+  }
+
+  @media (max-width: 768px) {
+    .hubs {
+      grid-template-columns: 1fr;
+      margin-top: 40px;
+    }
+
+    .all-list {
+      grid-template-columns: 1fr;
+      margin-top: 40px;
+    }
+
+    .all-list li:nth-child(-n + 2) {
+      border-top: 1px solid var(--oat);
+    }
+
+    .all-list li:first-child {
+      border-top: 0;
+    }
+  }
+</style>

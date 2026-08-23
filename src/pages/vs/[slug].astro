@@ -1,0 +1,107 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import PageHero from "../../components/PageHero.astro";
+import ComparisonTable from "../../components/ComparisonTable.astro";
+import BenefitGrid from "../../components/BenefitGrid.astro";
+import Faq from "../../components/Faq.astro";
+import FinalCta from "../../components/FinalCta.astro";
+import Footer from "../../components/Footer.astro";
+import JsonLd from "../../components/JsonLd.astro";
+import { comparisons, hubBySlug } from "../../data/comparisons";
+import { organizationSchema, webPageSchema, faqPageSchema } from "../../data/seo";
+
+export async function getStaticPaths() {
+  return comparisons.map((c) => ({
+    params: { slug: c.slug },
+    props: { comparison: c },
+  }));
+}
+
+const { comparison } = Astro.props;
+const hub = hubBySlug(comparison.hubSlug);
+const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
+---
+
+<Layout title={comparison.title} description={comparison.description}>
+  <Fragment slot="head">
+    <JsonLd data={organizationSchema()} />
+    <JsonLd data={webPageSchema(pageUrl, comparison.title, comparison.description)} />
+    <JsonLd data={faqPageSchema(comparison.faqs)} />
+  </Fragment>
+  <Header />
+  <main>
+    <div class="crumb-wrap">
+      <p class="crumb reveal">
+        <a href="/vs/">← All comparisons</a>
+        {
+          hub && (
+            <span>
+              <span class="crumb-sep">·</span>
+              <a href={`/vs/${hub.slug}/`}>{hub.name}</a>
+            </span>
+          )
+        }
+      </p>
+    </div>
+    <PageHero
+      eyebrow="Comparison"
+      title="Crucible vs"
+      em={comparison.rivalName}
+      lede={comparison.pitch}
+      ctaLabel="Start your first campaign free"
+      secondaryLabel="All comparisons"
+      secondaryHref="/vs/"
+    />
+    <ComparisonTable rivalName={comparison.rivalName} rows={comparison.rows} />
+    <BenefitGrid
+      eyebrow="Why switch"
+      title="Where Crucible"
+      em="goes further."
+      cards={comparison.differentiators}
+    />
+    <Faq
+      id="faq"
+      eyebrow="Comparison FAQ"
+      title={`${comparison.rivalName},`}
+      em="answered."
+      faqs={comparison.faqs}
+    />
+    <FinalCta />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .crumb-wrap {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 40px 24px 0;
+  }
+
+  .crumb {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-50);
+  }
+
+  .crumb a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--ink-50);
+    text-decoration: none;
+  }
+
+  .crumb a:hover {
+    color: var(--fin-deep);
+  }
+
+  .crumb-sep {
+    margin: 0 8px;
+    color: var(--sand);
+  }
+</style>

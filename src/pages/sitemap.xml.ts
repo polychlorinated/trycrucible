@@ -1,4 +1,5 @@
 import { getCollection } from "astro:content";
+import { comparisons, comparisonHubs } from "../data/comparisons";
 
 const SITE_URL = "https://trycrucible.com";
 
@@ -7,13 +8,15 @@ const staticRoutes = [
   { path: "/how-it-works/", priority: "0.9" },
   { path: "/for/founders/", priority: "0.8" },
   { path: "/for/consultants/", priority: "0.8" },
-  { path: "/vs/opusclip/", priority: "0.8" },
-  { path: "/vs/ghostwriters/", priority: "0.8" },
+  { path: "/vs/", priority: "0.8" },
+  { path: "/vs/opusclip/", priority: "0.7" },
   { path: "/blog/", priority: "0.8" },
   { path: "/contact/", priority: "0.5" },
   { path: "/privacy/", priority: "0.3" },
   { path: "/terms/", priority: "0.3" },
   { path: "/cookies/", priority: "0.3" },
+  ...comparisonHubs.map((hub) => ({ path: `/vs/${hub.slug}/`, priority: "0.7" })),
+  ...comparisons.map((c) => ({ path: `/vs/${c.slug}/`, priority: "0.7" })),
 ];
 
 export async function GET() {
