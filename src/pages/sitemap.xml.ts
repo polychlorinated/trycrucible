@@ -8,6 +8,8 @@ const staticRoutes = [
   { path: "/how-it-works/", priority: "0.9" },
   { path: "/for/founders/", priority: "0.8" },
   { path: "/for/consultants/", priority: "0.8" },
+  { path: "/for/smb-operators/", priority: "0.8" },
+  { path: "/for/agencies/", priority: "0.8" },
   { path: "/vs/", priority: "0.8" },
   { path: "/vs/opusclip/", priority: "0.7" },
   { path: "/blog/", priority: "0.8" },

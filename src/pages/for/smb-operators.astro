@@ -1,0 +1,79 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import PageHero from "../../components/PageHero.astro";
+import BenefitGrid from "../../components/BenefitGrid.astro";
+import Faq from "../../components/Faq.astro";
+import FinalCta from "../../components/FinalCta.astro";
+import Footer from "../../components/Footer.astro";
+import JsonLd from "../../components/JsonLd.astro";
+import type { FaqItem } from "../../data/faq";
+import { organizationSchema, webPageSchema, faqPageSchema } from "../../data/seo";
+
+const PAGE_URL = "https://trycrucible.com/for/smb-operators/";
+const title = "For Small Business Owners — Content that fits the grind | Crucible";
+const description =
+  "You're the busiest person in your business — and its best story. Capture a few minutes of thinking in the gaps of the day; Crucible stitches the clips together and builds a week of content.";
+
+const benefits = [
+  {
+    title: "Capture in the gaps",
+    body: "Between jobs, in the truck, during the slow stretch behind the counter — pull out your phone, say what's on your mind, and stop when reality interrupts. No studio, no schedule, no script.",
+  },
+  {
+    title: "Stop and start freely",
+    body: "A customer walks in mid-thought? Pause. A job needs you? Stop. Crucible accepts multiple video clips and edits them together into one clean recording.",
+  },
+  {
+    title: "Your voice, at the register",
+    body: "You already tell customers why they should buy from you. Crucible turns those same words into clips, carousels, and posts that sell while you work.",
+  },
+  {
+    title: "A week of content, a few minutes of talking",
+    body: "Ten minutes of captured thinking becomes shorts, deep dives, and written posts — built around your week, not your workload.",
+  },
+];
+
+const faqs: FaqItem[] = [
+  {
+    q: "I stop and start constantly — does that break the workflow?",
+    a: "No. Crucible accepts multiple video clips from your phone and edits them together into one recording. Stop when a customer or a job needs you, start again when you can, and the system handles the assembly.",
+  },
+  {
+    q: "I'm not a writer and I don't want to be on camera.",
+    a: "You don't need either. Talk the way you'd talk to a customer — Crucible removes the stumbles and restarts and builds the finished clips, carousels, and posts in your voice.",
+  },
+  {
+    q: "How much time does this actually take?",
+    a: "A few minutes here and there — the gaps you already have. The transcription, editing, and drafting happen automatically from your recording.",
+  },
+  {
+    q: "What if I record while I'm driving?",
+    a: "Stay hands-free and safe. Use your phone's voice recording or a mounted setup to capture walk-and-talk-style audio — Crucible works from audio recordings too, so your time on the road still counts.",
+  },
+];
+---
+
+<Layout title={title} description={description}>
+  <Fragment slot="head">
+    <JsonLd data={organizationSchema()} />
+    <JsonLd data={webPageSchema(PAGE_URL, title, description)} />
+    <JsonLd data={faqPageSchema(faqs)} />
+  </Fragment>
+  <Header />
+  <main>
+    <PageHero
+      eyebrow="For small business owners"
+      title="Content for people who"
+      em="don't have time for content."
+      lede="You're the busiest person in your business — on-site, on the road, on the clock. But you're also the best story it has. Capture a few minutes of thinking whenever the day opens up: driving between sites, walking a job, a slow stretch behind the counter. Stop when a customer walks in; pick it back up when they leave. Crucible stitches it all together and turns your scraps of time into a week of content."
+      ctaLabel="Start your first campaign free"
+      secondaryLabel="How it works"
+      secondaryHref="/how-it-works/"
+    />
+    <BenefitGrid eyebrow="Why small business owners" title="Built for the" em="grind." cards={benefits} />
+    <Faq id="faq" eyebrow="SMB FAQ" title="Small business owners," em="answered." faqs={faqs} />
+    <FinalCta />
+  </main>
+  <Footer />
+</Layout>

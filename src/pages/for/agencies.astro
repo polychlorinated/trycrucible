@@ -1,0 +1,79 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import PageHero from "../../components/PageHero.astro";
+import BenefitGrid from "../../components/BenefitGrid.astro";
+import Faq from "../../components/Faq.astro";
+import FinalCta from "../../components/FinalCta.astro";
+import Footer from "../../components/Footer.astro";
+import JsonLd from "../../components/JsonLd.astro";
+import type { FaqItem } from "../../data/faq";
+import { organizationSchema, webPageSchema, faqPageSchema } from "../../data/seo";
+
+const PAGE_URL = "https://trycrucible.com/for/agencies/";
+const title = "For Agencies — Scale client content without adding headcount | Crucible";
+const description =
+  "Ghostwriters, PR agencies, and content shops use Crucible to turn client interviews into multi-format campaigns — running their own interviews, adding their own b-roll, and scaling output without hiring.";
+
+const benefits = [
+  {
+    title: "Interview on your terms",
+    body: "Keep the client relationship: run interviews yourself and upload the video, replacing the AI interviewer with your own process. Crucible handles the transcription, editing, and drafting.",
+  },
+  {
+    title: "Scale the writer's craft",
+    body: "Your team reviews and refines drafts instead of starting from a blank page. One recording becomes clips, carousels, deep dives, and written posts across the client's channels.",
+  },
+  {
+    title: "Make it yours with b-roll",
+    body: "Capturing footage on set or on-site? Layer your own b-roll into the final edits for production value your clients can see and feel.",
+  },
+  {
+    title: "Margins that make sense",
+    body: "Stop trading hours for drafts. Automated extraction and editing means more campaigns per client — without hiring videographers, editors, or writers.",
+  },
+];
+
+const faqs: FaqItem[] = [
+  {
+    q: "Can we run our own interviews instead of the AI interviewer?",
+    a: "Yes. Upload your own video and Crucible replaces the AI interviewer with your approach — your team keeps the client relationship, and Crucible handles transcription, clipping, and drafting.",
+  },
+  {
+    q: "Can we add our own footage to the final videos?",
+    a: "Yes — use the b-roll tool to layer your own captures into the final edits, giving client output production value beyond a simple talking-head cut.",
+  },
+  {
+    q: "How do we manage multiple client brands?",
+    a: "Each workspace holds one brand voice profile. Multi-brand workspaces and team permissions are on the way — contact us for early access if you need them sooner.",
+  },
+  {
+    q: "How does billing work for agencies?",
+    a: "Team & Agency plans are coming soon — contact us for early access. Today, most agencies run Starter or Pro per client brand and pass the cost through to the engagement.",
+  },
+];
+---
+
+<Layout title={title} description={description}>
+  <Fragment slot="head">
+    <JsonLd data={organizationSchema()} />
+    <JsonLd data={webPageSchema(PAGE_URL, title, description)} />
+    <JsonLd data={faqPageSchema(faqs)} />
+  </Fragment>
+  <Header />
+  <main>
+    <PageHero
+      eyebrow="For agencies"
+      title="More client content."
+      em="Less headcount."
+      lede="Ghostwriters, PR agencies, and content shops run on billable hours — and client interviews eat most of them. Crucible turns your client work into an engine: let the AI interviewer pull the story out, or run the interview yourself and upload the video. Then process the recording into clips, carousels, deep dives, and written posts — with your team polishing the final pass. Add your own b-roll on top of the final cuts to make the output unmistakably yours."
+      ctaLabel="Start your first campaign free"
+      secondaryLabel="See pricing"
+      secondaryHref="/#pricing"
+    />
+    <BenefitGrid eyebrow="Why agencies" title="Your craft," em="at scale." cards={benefits} />
+    <Faq id="faq" eyebrow="Agency FAQ" title="Agencies," em="answered." faqs={faqs} />
+    <FinalCta />
+  </main>
+  <Footer />
+</Layout>
