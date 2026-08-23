@@ -18,7 +18,7 @@ export const homeFaqs: FaqItem[] = [
   },
   {
     q: "Does it post for me?",
-    a: "You can export the files, or connect your LinkedIn account and publish straight from Crucible.",
+    a: "You can export the files, or connect your social accounts — LinkedIn, X, and more — and publish straight from Crucible, wherever the platform allows direct publishing.",
   },
   {
     q: "What if it doesn’t sound like my business?",

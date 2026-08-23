@@ -132,7 +132,7 @@ export const comparisons: Comparison[] = [
     ],
     faqs: [
       { q: "Is Taja AI a Crucible competitor?", a: "They solve different halves of the problem. Taja repurposes finished long-form videos into clips and schedules them. Crucible starts earlier — an AI interviewer draws the raw material out of you. If you already have polished long-form video, the tools overlap; if you're starting from raw thoughts, Crucible comes first." },
-      { q: "Does Crucible auto-schedule to social platforms?", a: "You can publish posts straight to LinkedIn from Crucible. Multi-platform auto-scheduling the way Taja does it isn't Crucible's focus — Crucible's focus is creating authentic assets in your voice." },
+      { q: "Does Crucible auto-schedule to social platforms?", a: "You can publish posts straight to your connected platforms — LinkedIn, X, and others that allow direct publishing — from Crucible. Multi-platform auto-scheduling the way Taja does it isn't Crucible's focus — Crucible's focus is creating authentic assets in your voice." },
       { q: "Do I need an existing video library to use Crucible?", a: "No. Record a brain dump or an AI-guided interview whenever inspiration strikes — no finished footage required." },
     ],
   },
@@ -160,7 +160,7 @@ export const comparisons: Comparison[] = [
     faqs: [
       { q: "Is Pressmaster only for teams?", a: "Pressmaster targets growth teams and agencies with seat-based tiers. Crucible serves both lean teams and individual founders with simple campaign-based plans." },
       { q: "Can Crucible match my brand voice like an AI brand voice tool?", a: "Yes. You approve the brand voice profile up front and can upload style guides and context documents — every draft follows it, and you can edit anything." },
-      { q: "Does Crucible distribute content to every channel?", a: "Crucible produces the assets — clips, carousels, deep dives, and written posts — and publishes directly to LinkedIn. For other channels, download the files and post them wherever you like." },
+      { q: "Does Crucible distribute content to every channel?", a: "Crucible produces the assets — clips, carousels, deep dives, and written posts — and publishes directly to your connected platforms, like LinkedIn and X. For channels without direct publishing, download the files and post them wherever you like." },
     ],
   },
   {
