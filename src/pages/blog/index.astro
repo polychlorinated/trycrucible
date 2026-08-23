@@ -9,7 +9,7 @@ import { organizationSchema, webSiteSchema, webPageSchema } from "../../data/seo
 const PAGE_URL = "https://trycrucible.com/blog/";
 const title = "Blog — The Crucible Journal";
 const description =
-  "Notes on founder-led content: turning raw recordings into clips, deep dives, and posts that sound like you.";
+  "Notes on founder-led content: turning raw recordings into clips, carousels, deep dives, and posts that sound like you.";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime()

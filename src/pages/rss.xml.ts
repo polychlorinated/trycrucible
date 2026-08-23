@@ -24,7 +24,7 @@ export async function GET() {
   <channel>
     <title>Crucible Blog</title>
     <link>${SITE_URL}/blog/</link>
-    <description>Notes on founder-led content: turning raw recordings into clips, deep dives, and posts that sound like you.</description>
+    <description>Notes on founder-led content: turning raw recordings into clips, carousels, deep dives, and posts that sound like you.</description>
     <language>en-us</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
 ${items}

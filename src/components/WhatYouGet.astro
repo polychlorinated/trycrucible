@@ -1,6 +1,7 @@
 ---
 const features = [
   { title: "60-Second Social Shorts", body: "High-impact, hook-first clips formatted for LinkedIn, TikTok, and YouTube Shorts." },
+  { title: "Carousel Slides", body: "Swipeable LinkedIn carousels built from your recording’s key points — hooks, proof, and a call to action, designed to match your brand.", featured: true },
   { title: "5–10 Minute Deep Dives", body: "Structured video thought pieces ideal for long-form YouTube, embedded newsletter updates, or customer-facing product and strategy reviews." },
   { title: "Written Articles & Social Posts", body: "Transformed text drafts — LinkedIn posts, newsletters, blog articles — assembled directly from your spoken logic and your topic knowledge base." },
   { title: "Preserve or Remix", body: "Choose a light-touch pass that retains your full story or a director’s cut of short- and long-form content for any platform." },
@@ -20,7 +21,7 @@ const features = [
     <div class="features">
       {
         features.map((f) => (
-          <article class="card feature reveal">
+          <article class:list={["card", "feature", "reveal", { "feature--wide": f.featured }]}>
             <span class="feature-dot" aria-hidden="true"></span>
             <h3>{f.title}</h3>
             <p>{f.body}</p>
@@ -57,6 +58,10 @@ const features = [
   .feature:nth-child(4n + 2) .feature-dot { background: var(--report-blue); }
   .feature:nth-child(4n + 3) .feature-dot { background: var(--report-lime); }
   .feature:nth-child(4n + 4) .feature-dot { background: var(--report-pink); }
+
+  .feature--wide {
+    grid-column: 1 / -1;
+  }
 
   .feature h3 {
     margin: 0;

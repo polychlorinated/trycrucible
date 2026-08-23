@@ -10,7 +10,7 @@ export const homeFaqs: FaqItem[] = [
   },
   {
     q: "How long does this actually take?",
-    a: "About ten minutes of talking. Your edited video, clips, and written posts are typically ready a few minutes after that.",
+    a: "About ten minutes of talking. Your edited video, carousel slides, clips, and written posts are typically ready a few minutes after that.",
   },
   {
     q: "Can I change what it writes?",
@@ -30,6 +30,6 @@ export const homeFaqs: FaqItem[] = [
   },
   {
     q: "What’s free, exactly?",
-    a: "Your first project is free: every plan includes a single credit that covers one full campaign — the recording, the edited video, and the full set of posts. After that, Starter includes 4 campaigns a month and Pro includes 16.",
+    a: "Your first project is free: every plan includes a single credit that covers one full campaign — the recording, the edited video, carousel slides, and the full set of posts. After that, Starter includes 4 campaigns a month and Pro includes 16.",
   },
 ];

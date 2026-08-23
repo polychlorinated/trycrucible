@@ -37,7 +37,7 @@ export function softwareApplicationSchema() {
     "@type": "SoftwareApplication",
     name: "Crucible",
     description:
-      "Crucible turns a 10-minute recording into a week of content: video shorts, deep dives, and multi-channel written posts in your own voice.",
+      "Crucible turns a 10-minute recording into a week of content: video shorts, carousel slides, deep dives, and multi-channel written posts in your own voice.",
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
     url: `${SITE_URL}/`,

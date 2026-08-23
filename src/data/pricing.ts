@@ -24,7 +24,7 @@ export const pricingPlans: PricingPlan[] = [
       "4 Complete Weekly Campaigns / mo",
       "1 Brand Voice Profile",
       "1 User Seat",
-      "Short video clips, deep dives, and multi-channel written posts",
+      "Short video clips, carousel slides, deep dives, and multi-channel written posts",
     ],
     creditNote: "Includes 1 free credit for your first project",
     cta: { label: "Get started", href: APP_LOGIN_URL },

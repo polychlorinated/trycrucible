@@ -45,7 +45,7 @@ End to end, that means:
 - **Inspiration and research up front** — making sure founders know what to focus on, since they already have the thoughts, they just need hooks to hold onto.
 - **Easy ways to hit record** — a rambling braindump, a train of thought on a walk in the woods, or an AI-guided interview (like a podcast host asking questions) for founders who need structure to lower the anxiety.
 - **Processing that respects the voice** — editing video down into clips, similar to what Descript or OpusClip do, but inside a workflow built specifically around extracting a founder's real thinking.
-- **Output in the founder's own voice** — long-form and short-form content built from what they actually said, not a sanitized AI rewrite.
+- **Output in the founder's own voice** — video clips, carousel slides, and long-form and short-form written content built from what they actually said, not a sanitized AI rewrite.
 
 AI is part of the toolbox. But the founder's voice, their actual face, stays front and center. That's not replicable by AI alone, and it shouldn't be.
 
