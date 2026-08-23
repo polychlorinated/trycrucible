@@ -12,8 +12,9 @@ const blocks: LegalBlock[] = [
     items: [
       "Account data: your email address (used for sign-in codes).",
       "Business data: your business name, industry, website URL, and your answers to our brand questionnaire. We analyze the public content of the website you provide to build your brand voice profile.",
-      "Recordings and transcripts: videos you record in the app, their transcripts, and the written content drafts generated from them.",
+      "Recordings and transcripts: videos you record in the app, their transcripts, and the written content and carousel slide drafts generated from them.",
       "Social publishing data: when you connect your LinkedIn account, we store the list of accounts you connected through our publishing provider (Upload-Post) and correlate them to your profile. We never see your social media passwords.",
+      "Usage analytics: product analytics (page views, button clicks, feature usage) and engagement analytics for your published content, collected through PostHog to measure performance and improve the product.",
     ],
   },
   {
@@ -24,7 +25,7 @@ const blocks: LegalBlock[] = [
     type: "ul",
     items: [
       "Transcription: your recordings are transcribed by Deepgram (<a href=\"https://deepgram.com/privacy\">deepgram.com/privacy</a>).",
-      "Content generation: transcripts and your brand profile are processed by Anthropic’s Claude API (<a href=\"https://anthropic.com/privacy\">anthropic.com/privacy</a>) and DeepSeek V4 Flash (deepseek.com) to draft captions and posts. API data is not used to train models per Anthropic’s commercial terms.",
+      "Content generation: transcripts and your brand profile are processed by Anthropic’s Claude API (<a href=\"https://anthropic.com/privacy\">anthropic.com/privacy</a>) and DeepSeek V4 Flash (deepseek.com) to draft captions, posts, carousel slides, and video edits. API data is not used to train models per Anthropic’s commercial terms.",
       "Social intelligence: with your explicit approval, publicly available social media and web content from your tracked competitors, topics, and thought leaders is accessed via Tavily and Apify to surface content insights and green space opportunities (<a href=\"https://tavily.com/privacy\">tavily.com/privacy</a>, <a href=\"https://apify.com/privacy\">apify.com/privacy</a>).",
       "Storage: recordings, transcripts, and drafts are stored with Supabase in your account’s private storage.",
       "Publishing: content you choose to publish is sent to our publishing provider (Upload-Post), which posts it to the LinkedIn account you connected.",

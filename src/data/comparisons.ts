@@ -283,6 +283,7 @@ export const comparisons: Comparison[] = [
       { dimension: "Core job", crucible: "Spoken insight → full multi-channel content campaign", rival: "Written LinkedIn post drafting, engagement & scheduling" },
       { dimension: "Video production", crucible: "Automated narrative clip extraction & edits", rival: "No video editing features" },
       { dimension: "Content generation", crucible: "Interactive AI interview to extract unscripted ideas", rival: "Written text editor, AI text prompts & scheduling" },
+      { dimension: "Analytics", crucible: "Engagement analytics & brand growth monitoring included", rival: "LinkedIn post analytics & engagement workflows" },
       { dimension: "Pricing", crucible: "$49/mo Starter · $149/mo Pro", rival: "Starter $19/mo ($16 annual) · Pro $39/mo ($31 annual) · Team $139/mo" },
     ],
     differentiators: [
@@ -293,7 +294,7 @@ export const comparisons: Comparison[] = [
     faqs: [
       { q: "Does Supergrow do what Crucible does?", a: "Supergrow is a text editor and scheduler for LinkedIn. Crucible generates video, carousel slides, and written content from your spoken insights — it's an upstream creation engine, not an editor." },
       { q: "I write my own posts — why would I use Crucible?", a: "For the video side and the interview. Talk for ten minutes and get clips, carousel slides, deep dives, and written drafts — then hand them to your favorite editor if you want." },
-      { q: "Does Crucible have engagement analytics?", a: "Crucible focuses on brand growth monitoring across your campaigns. Day-to-day LinkedIn engagement tooling like Supergrow's isn't the focus." },
+      { q: "Does Crucible have engagement analytics?", a: "Yes. Crucible includes engagement analytics for your published campaigns — views, engagement, and reach — alongside brand growth monitoring. What it doesn't do is Supergrow's day-to-day LinkedIn engagement workflows like commenting and DM replies; that's not the focus." },
     ],
   },
   {
