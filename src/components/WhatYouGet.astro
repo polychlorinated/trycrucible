@@ -1,12 +1,11 @@
 ---
 const features = [
   { title: "60-Second Social Shorts", body: "High-impact, hook-first clips formatted for LinkedIn, TikTok, and YouTube Shorts." },
-  { title: "Carousel Slides", body: "Swipeable LinkedIn carousels built from your recording’s key points — hooks, proof, and a call to action, designed to match your brand.", featured: true },
+  { title: "Carousel Slides", body: "Swipeable LinkedIn carousels built from your recording’s key points — hooks, proof, and a call to action, designed to match your brand." },
   { title: "5–10 Minute Deep Dives", body: "Structured video thought pieces ideal for long-form YouTube, embedded newsletter updates, or customer-facing product and strategy reviews." },
   { title: "Written Articles & Social Posts", body: "Transformed text drafts — LinkedIn posts, newsletters, blog articles — assembled directly from your spoken logic and your topic knowledge base." },
   { title: "Preserve or Remix", body: "Choose a light-touch pass that retains your full story or a director’s cut of short- and long-form content for any platform." },
-  { title: "Your Interview Partner", body: "No teleprompter required — your on-demand host adapts to your answers live, asking follow-up questions that pull your best insights to the surface." },
-  { title: "Documentary Style Production", body: "The final render features 100% you. The interviewer stays off-camera and off-mic, leaving you with clean, solo videos." },
+  { title: "Authentically You", body: "The final render features 100% you. The interviewer stays off-camera and off-mic, leaving you with clean, solo videos." },
   { title: "Context Knowledge Base", body: "Upload style guides, PDF articles, or research links to inform your interview questions and ensure written posts match your domain." },
   { title: "Insights & Trends", body: "Track the competitors, thought leaders, and topics that matter in your space. Crucible analyzes what people are talking about right now and shows where you can weigh in — or where the greenspace is yours to own." },
 ];
@@ -21,7 +20,7 @@ const features = [
     <div class="features">
       {
         features.map((f) => (
-          <article class:list={["card", "feature", "reveal", { "feature--wide": f.featured }]}>
+          <article class="card feature reveal">
             <span class="feature-dot" aria-hidden="true"></span>
             <h3>{f.title}</h3>
             <p>{f.body}</p>
@@ -58,10 +57,6 @@ const features = [
   .feature:nth-child(4n + 2) .feature-dot { background: var(--report-blue); }
   .feature:nth-child(4n + 3) .feature-dot { background: var(--report-lime); }
   .feature:nth-child(4n + 4) .feature-dot { background: var(--report-pink); }
-
-  .feature--wide {
-    grid-column: 1 / -1;
-  }
 
   .feature h3 {
     margin: 0;
