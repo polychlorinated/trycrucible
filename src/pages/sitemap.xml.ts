@@ -23,12 +23,13 @@ const staticRoutes = [
 
 export async function GET() {
   const posts = await getCollection("blog");
+  const buildDate = new Date().toISOString().slice(0, 10);
 
   const urls = [
     ...staticRoutes.map(
       (r) => `  <url>
     <loc>${SITE_URL}${r.path}</loc>
-    <lastmod>2026-08-22</lastmod>
+    <lastmod>${buildDate}</lastmod>
     <priority>${r.priority}</priority>
   </url>`
     ),

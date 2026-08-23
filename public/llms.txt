@@ -1,0 +1,65 @@
+# Crucible
+
+> Crucible turns a 10-minute recording into a week of content: video shorts,
+> carousel slides, deep dives, and multi-channel written posts — in your own
+> voice. Record a raw brain dump or an AI-guided interview; Crucible handles
+> the transcription, editing, and drafting.
+
+## What Crucible is
+
+- An end-to-end content system for founders, consultants, small business
+  owners, and agencies — not just a clip cutter or a writing tool.
+- An AI interviewer draws ideas out of unscripted thoughts; no finished
+  video or blank-page writing required.
+- Accepts multiple video clips from your phone and edits them together —
+  stop and start recording whenever real work interrupts.
+- Outputs: 60-second shorts, LinkedIn carousels, 5–10 minute deep dives,
+  and written posts (LinkedIn, newsletters, blog) — all in your brand voice.
+- Publishing: post straight to connected platforms (LinkedIn, X, and others
+  that allow direct publishing); export files for everything else.
+- Engagement analytics and brand growth monitoring are built in.
+- Pricing: Starter $49/mo (4 complete campaigns), Pro $149/mo (16 campaigns
+  + Social Research & Competitor Gap Engine), single credits $19. Every plan
+  starts with a free credit for your first project.
+
+## Key pages
+
+- [How it works](https://trycrucible.com/how-it-works/): the four-step
+  Crucible system — find inspiration, record raw thoughts, edit automated
+  multi-channel results, publish and monitor growth.
+- [Pricing](https://trycrucible.com/#pricing): Starter, Pro, Team & Agency
+  (coming soon), and single-credit details.
+- [Who Crucible is for](https://trycrucible.com/#who-its-for): founders,
+  teams, and agencies.
+- [For founders](https://trycrucible.com/for/founders/): founder-led content
+  without a content team.
+- [For consultants](https://trycrucible.com/for/consultants/): thought
+  leadership that wins retainers.
+- [For small business owners](https://trycrucible.com/for/smb-operators/):
+  content captured in the gaps of the working day.
+- [For agencies](https://trycrucible.com/for/agencies/): ghostwriters, PR
+  agencies, and content shops scaling client output.
+- [Comparisons](https://trycrucible.com/vs/): hub-and-spoke comparisons
+  against social video apps, AI video generators, LinkedIn tools, and
+  ghostwriting agencies (OpusClip, Descript, VEED, Captions, Submagic,
+  Taja AI, Pressmaster, DraftAI, Vidgenie, StoryShort, Oiti AI, Supergrow,
+  Avium, and more).
+- [Blog](https://trycrucible.com/blog/): notes on founder-led content and
+  the tools-vs-system philosophy.
+
+## Authority pages
+
+- [Privacy Policy](https://trycrucible.com/privacy/)
+- [Terms of Use](https://trycrucible.com/terms/)
+- [Cookie & Tracking Policy](https://trycrucible.com/cookies/)
+- [Contact](https://trycrucible.com/contact/)
+
+## Core facts
+
+- Company: Polychlorinated Ventures LLC DBA Crucible
+- Product URL: https://app.trycrucible.com/
+- Marketing site: https://trycrucible.com/
+- Contact: hello@trycrucible.com
+- The marketing site is fully static (SSG) with canonical URLs, JSON-LD
+  structured data, an XML sitemap at /sitemap.xml, and an RSS feed at
+  /rss.xml.

@@ -35,6 +35,15 @@ const audiences = [
         ))
       }
     </div>
+    <p class="audience-links reveal">
+      <a href="/for/founders/">For founders</a>
+      <span class="audience-links-sep">·</span>
+      <a href="/for/consultants/">For consultants</a>
+      <span class="audience-links-sep">·</span>
+      <a href="/for/smb-operators/">For small businesses</a>
+      <span class="audience-links-sep">·</span>
+      <a href="/for/agencies/">For agencies</a>
+    </p>
   </div>
 </section>
 
@@ -79,6 +88,31 @@ const audiences = [
     margin: 12px 0 0;
     font-size: 0.9375rem;
     color: var(--ink-60);
+  }
+
+  .audience-links {
+    margin: 28px 0 0;
+    text-align: center;
+    font-size: 0.9375rem;
+    color: var(--ink-60);
+  }
+
+  .audience-links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 6px;
+    color: var(--fin-deep);
+    text-decoration: none;
+  }
+
+  .audience-links a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .audience-links-sep {
+    color: var(--sand);
   }
 
   @media (max-width: 900px) {
