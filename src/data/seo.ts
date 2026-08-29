@@ -9,7 +9,7 @@ const organization = {
   name: "Crucible",
   legalName: "Polychlorinated Ventures LLC",
   url: `${SITE_URL}/`,
-  logo: `${SITE_URL}/flame-icon.png`,
+  logo: `${SITE_URL}/crucible-flame-icon.png`,
   email: "hello@trycrucible.com",
 };
 

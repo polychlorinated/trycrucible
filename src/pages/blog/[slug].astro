@@ -36,7 +36,7 @@ const articleSchema = {
   datePublished: post.data.publishDate.toISOString(),
   ...(post.data.updatedDate ? { dateModified: post.data.updatedDate.toISOString() } : {}),
   author: { "@type": "Person", name: post.data.author },
-  publisher: { "@type": "Organization", name: "Crucible", logo: { "@type": "ImageObject", url: new URL("/flame-icon.png", Astro.site).href } },
+  publisher: { "@type": "Organization", name: "Crucible", logo: { "@type": "ImageObject", url: new URL("/crucible-flame-icon.png", Astro.site).href } },
   mainEntityOfPage: pageUrl,
   articleSection: post.data.tags[0] ?? undefined,
 };
