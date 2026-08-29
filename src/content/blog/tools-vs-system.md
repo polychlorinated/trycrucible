@@ -8,6 +8,8 @@ tags:
   - "content system"
   - "personal brand"
   - "video marketing"
+heroImage: "/blog-images/tools-vs-system-image.webp"
+heroImageAlt: "Tools versus system: a founder's raw recording processed into finished content with Crucible"
 ---
 
 ## The stack isn't the problem
