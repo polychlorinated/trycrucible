@@ -104,6 +104,7 @@ export const comparisonHubs: ComparisonHub[] = [
     spokes: [
       { name: "Ghostwriters", href: "/vs/ghostwriters/", pitch: "Human writers at $2,000–$5,000/month." },
       { name: "Avium", href: "/vs/avium/", pitch: "Personal branding agency for world-class experts." },
+      { name: "Workflows.io", href: "/vs/workflows-io/", pitch: "AI-native GTM agency; LinkedIn content from $4k/mo." },
     ],
   },
 ];
@@ -430,6 +431,34 @@ export const comparisons: Comparison[] = [
       { q: "Is VEED a Crucible competitor?", a: "Only if you want a general-purpose editor. VEED is a great toolbox; Crucible automates the campaign pipeline end to end so you don't have to assemble anything." },
       { q: "Can I do manual edits in Crucible?", a: "Yes — text-based polishing: click any transcript word to cut it, approve or rewrite every draft, and send the video back for a re-cut." },
       { q: "Does Crucible do dubbing or translation?", a: "No — that's VEED's specialty. Crucible focuses on native content creation: your voice, your words, your week of output." },
+    ],
+  },
+  {
+    slug: "workflows-io",
+    rivalName: "Workflows.io",
+    hubSlug: "ghostwriters",
+    title: "Crucible vs Workflows.io — $49 engine vs $4k/month agency | Crucible",
+    description:
+      "Workflows.io delivers done-for-you LinkedIn content from $4,000/month with bi-weekly interviews. Crucible turns one recording into clips, carousels, deep dives, and posts in minutes for $49/month.",
+    pitch:
+      "Workflows.io is an AI-native GTM services agency. Its Content Engine delivers done-for-you LinkedIn thought leadership — 2-3 posts per week per profile, with graphic design, distribution, and bi-weekly interviews — starting at $4,000/month on quarterly commitments. Crucible is a self-serve engine that interviews you and turns a single recording into video clips, carousel slides, deep-dive videos, and written posts in minutes.",
+    rows: [
+      { dimension: "Core job", crucible: "Raw brain dump → video clips, carousels, deep dives & written posts", rival: "Done-for-you LinkedIn posts — 2-3 per week per profile" },
+      { dimension: "Delivery model", crucible: "Self-serve software — record whenever you want", rival: "Services agency — bi-weekly interviews & quarterly commitment" },
+      { dimension: "Turnaround", crucible: "Minutes after you stop recording", rival: "Posts land on the agency's content calendar" },
+      { dimension: "Outputs", crucible: "Video clips, carousel slides, deep dives, written posts", rival: "LinkedIn posts with done-for-you graphic design" },
+      { dimension: "Channels", crucible: "LinkedIn, X, newsletters, and wherever you publish", rival: "LinkedIn-first content; agency also runs outbound, RevOps & ABM" },
+      { dimension: "Pricing", crucible: "$49/mo Starter · $149/mo Pro", rival: "Starts at $4,000/mo, quarterly commitment" },
+    ],
+    differentiators: [
+      { title: "Software vs retainer", body: "Workflows.io's content service starts at $4,000/month. Crucible starts at $49/month and produces a week of clips, carousels, deep dives, and written posts from one recording." },
+      { title: "On-demand vs bi-weekly", body: "Workflows.io gathers your POV on scheduled interview calls twice a month. Crucible's AI interviewer is available 24/7 — record whenever inspiration strikes and get output in minutes." },
+      { title: "Your exact words vs agency copy", body: "Crucible reworks your own recorded words into publish-ready assets, keeping your voice intact. With an agency, a writer interprets your POV — you approve, but the words aren't yours." },
+    ],
+    faqs: [
+      { q: "Is Workflows.io a Crucible competitor?", a: "Partially. Workflows.io's Content Engine is a done-for-you LinkedIn service: 2-3 weekly posts per profile with graphic design, distribution, and bi-weekly interviews, from $4,000/month. Crucible is self-serve software that turns your own recordings into video clips, carousels, deep dives, and written posts. They overlap on building founder authority — the difference is who does the work and what it costs." },
+      { q: "What do I actually get for $4,000/month?", a: "Per their site, the Content Engine covers 2-3 weekly LinkedIn posts per profile, done-for-you graphic design, LinkedIn distribution, and bi-weekly interviews — on a quarterly commitment. Crucible delivers a comparable week of assets (clips, carousels, deep dives, and posts) minutes after you record, for $49/month." },
+      { q: "Workflows.io also does outbound, RevOps, and ABM. Does Crucible?", a: "No — Crucible focuses on authority content, not outbound sequences, CRM ops, or account-based campaigns. If you need a full GTM agency stack, Workflows.io and Crucible are complementary rather than competing." },
     ],
   },
 ];
