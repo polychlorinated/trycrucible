@@ -30,9 +30,19 @@ import { pricingPlans, singleCreditNote } from "../data/pricing";
               }
             </div>
             <p class:list={["tier-price", { "is-muted": plan.muted }]}>
+              {plan.wasPrice && (
+                <s class="tier-was" aria-label={`Regular price ${plan.wasPrice} per month`}>
+                  {plan.wasPrice}/mo
+                </s>
+              )}
               {plan.price}
               {plan.per && <span class="per">{plan.per}</span>}
             </p>
+            {
+              plan.wasPrice && (
+                <p class="tier-intro-note">Limited introductory pricing</p>
+              )
+            }
             {
               plan.blurb && <p class="tier-blurb">{plan.blurb}</p>
             }
@@ -151,6 +161,25 @@ import { pricingPlans, singleCreditNote } from "../data/pricing";
     font-size: 0.9375rem;
     font-weight: 460;
     color: var(--ink-50);
+  }
+
+  .tier-was {
+    margin-right: 4px;
+    font-size: 1.0625rem;
+    font-weight: 460;
+    letter-spacing: -0.01em;
+    text-decoration: line-through;
+    text-decoration-thickness: 1.5px;
+    color: var(--ink-50);
+  }
+
+  .tier-intro-note {
+    margin: 8px 0 0;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--fin-deep);
   }
 
   .tier-blurb {

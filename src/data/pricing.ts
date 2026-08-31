@@ -1,6 +1,7 @@
 export interface PricingPlan {
   name: string;
   price: string;
+  wasPrice: string | null;
   per: string | null;
   badge: string | null;
   blurb: string | null;
@@ -17,6 +18,7 @@ export const pricingPlans: PricingPlan[] = [
   {
     name: "Starter",
     price: "$49",
+    wasPrice: "$99",
     per: "/mo",
     badge: null,
     blurb: "Turn one weekly 10-minute brain dump into a full week of content.",
@@ -34,6 +36,7 @@ export const pricingPlans: PricingPlan[] = [
   {
     name: "Pro",
     price: "$149",
+    wasPrice: "$299",
     per: "/mo",
     badge: "Most Popular",
     blurb: "The full output engine for serious brands — weekly scale plus social research.",
@@ -51,6 +54,7 @@ export const pricingPlans: PricingPlan[] = [
   {
     name: "Team & Agency",
     price: "Coming Soon",
+    wasPrice: null,
     per: null,
     badge: null,
     blurb: "Multi-seat team collaboration, custom brand voice guardrails, and multi-brand workspaces.",
