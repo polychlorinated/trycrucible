@@ -5,7 +5,7 @@
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <h1 class="hero-title reveal" data-od-id="hero-headline">
-        Visibility drives revenue.
+        Visibility drives <span class="hero-title__mark">revenue</span>.
       </h1>
       <p class="hero-roll reveal">
         <span class="hero-roll__lead">Crucible makes it easy for</span>
@@ -13,7 +13,7 @@
           <span class="dropping-texts__item">founders</span>
           <span class="dropping-texts__item">SMB owners</span>
           <span class="dropping-texts__item">fractional executives</span>
-          <span class="dropping-texts__item dropping-texts__item--last">consultants</span>
+          <span class="dropping-texts__item">consultants</span>
           <span class="dropping-texts__sizer">fractional executives</span>
         </span>
         <span class="sr-only">founders, SMB owners, fractional executives, and consultants.</span>
@@ -43,6 +43,7 @@
 
 <style>
   .hero {
+    --hero-display: clamp(2.75rem, 6vw, 4.75rem);
     padding: 72px 0 96px;
     border-top: 0;
     overflow: hidden;
@@ -57,69 +58,66 @@
 
   .hero-title {
     margin: 0;
-    font-size: clamp(2.75rem, 6vw, 4.75rem);
+    font-size: var(--hero-display);
     font-weight: 430;
     line-height: 0.95;
     letter-spacing: -0.035em;
     text-wrap: balance;
   }
 
+  .hero-title__mark {
+    background: var(--fin);
+    color: var(--ink);
+    padding: 0 0.1em;
+    border-radius: 4px;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
   .hero-roll {
-    --roll-size: clamp(1.25rem, 2.4vw, 1.75rem);
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.25em 0.4em;
-    margin: 22px 0 0;
-    font-size: var(--roll-size);
+    margin: 0.2em 0 0;
+    font-size: var(--hero-display);
     font-weight: 430;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    line-height: 0.95;
+    letter-spacing: -0.035em;
     color: var(--ink);
   }
 
   .hero-roll__lead {
-    color: var(--ink-80);
+    display: block;
   }
 
   .dropping-texts {
     position: relative;
-    display: inline-block;
-    vertical-align: baseline;
-    text-align: left;
+    display: block;
     color: var(--fin);
   }
 
   .dropping-texts__sizer {
     visibility: hidden;
-    font-size: inherit;
   }
 
   .dropping-texts__item {
     position: absolute;
     top: 0;
     left: 0;
-    font-size: 0;
-    font-weight: 430;
     opacity: 0;
-    white-space: nowrap;
-    transform-origin: center;
   }
 
   .dropping-texts__item:nth-child(1) {
-    animation: hero-roll 5s linear infinite 0s;
+    animation: hero-roll 8s linear infinite 0s;
   }
 
   .dropping-texts__item:nth-child(2) {
-    animation: hero-roll 5s linear infinite 1s;
+    animation: hero-roll 8s linear infinite 2s;
   }
 
   .dropping-texts__item:nth-child(3) {
-    animation: hero-roll 5s linear infinite 2s;
+    animation: hero-roll 8s linear infinite 4s;
   }
 
-  .dropping-texts__item--last {
-    animation: hero-roll-last 5s linear infinite 3s;
+  .dropping-texts__item:nth-child(4) {
+    animation: hero-roll 8s linear infinite 6s;
   }
 
   .sr-only {
@@ -136,81 +134,24 @@
 
   @keyframes hero-roll {
     0% {
-      font-size: 0;
       opacity: 0;
-      margin-left: calc(-0.85 * var(--roll-size));
-      margin-top: 0;
-      transform: rotate(-25deg);
+      transform: translateY(-0.6em) rotate(-14deg);
     }
-    3% {
+    6% {
       opacity: 1;
-      transform: rotate(0deg);
+      transform: translateY(0) rotate(0deg);
     }
-    5% {
-      font-size: inherit;
+    22% {
       opacity: 1;
-      margin-left: 0;
-      margin-top: 0;
+      transform: translateY(0) rotate(0deg);
     }
-    20% {
-      font-size: inherit;
-      opacity: 1;
-      margin-left: 0;
-      margin-top: 0;
-      transform: rotate(0deg);
-    }
-    27% {
-      font-size: 0;
-      opacity: 0.5;
-      margin-left: calc(0.55 * var(--roll-size));
-      margin-top: calc(2.8 * var(--roll-size));
+    28% {
+      opacity: 0;
+      transform: translateY(0.5em) rotate(8deg);
     }
     100% {
-      font-size: 0;
       opacity: 0;
-      margin-left: calc(-0.85 * var(--roll-size));
-      margin-top: 0;
-      transform: rotate(15deg);
-    }
-  }
-
-  @keyframes hero-roll-last {
-    0% {
-      font-size: 0;
-      opacity: 0;
-      margin-left: calc(-0.85 * var(--roll-size));
-      margin-top: 0;
-      transform: rotate(-25deg);
-    }
-    3% {
-      opacity: 1;
-      transform: rotate(0deg);
-    }
-    5% {
-      font-size: inherit;
-      opacity: 1;
-      margin-left: 0;
-      margin-top: 0;
-    }
-    30% {
-      font-size: inherit;
-      opacity: 1;
-      margin-left: 0;
-      margin-top: 0;
-      transform: rotate(0deg);
-    }
-    37% {
-      font-size: calc(10 * var(--roll-size));
-      opacity: 0;
-      margin-left: calc(-9 * var(--roll-size));
-      margin-top: calc(-7 * var(--roll-size));
-    }
-    100% {
-      font-size: 0;
-      opacity: 0;
-      margin-left: calc(-0.85 * var(--roll-size));
-      margin-top: 0;
-      transform: rotate(15deg);
+      transform: translateY(-0.6em) rotate(-14deg);
     }
   }
 
@@ -255,8 +196,6 @@
     .dropping-texts__item {
       animation: none !important;
       opacity: 0;
-      font-size: inherit;
-      margin: 0;
       transform: none;
     }
 
