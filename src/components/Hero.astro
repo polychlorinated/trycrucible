@@ -5,10 +5,9 @@
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <h1 class="hero-title reveal" data-od-id="hero-headline">
-        Visibility drives <span class="hero-title__mark">revenue</span>.
+        Visibility drives revenue for
       </h1>
       <p class="hero-roll reveal">
-        <span class="hero-roll__lead">Crucible makes it easy for</span>
         <span class="dropping-texts" aria-hidden="true">
           <span class="dropping-texts__item">founders</span>
           <span class="dropping-texts__item">SMB owners</span>
@@ -43,7 +42,9 @@
 
 <style>
   .hero {
-    --hero-display: clamp(2.75rem, 6vw, 4.75rem);
+    --hero-display: clamp(1.6rem, 11vw - 6px, 3.5rem);
+    --hero-leading: 0.95;
+    --hero-roll-gap: calc(0.25 * var(--hero-leading) * var(--hero-display));
     padding: 72px 0 96px;
     border-top: 0;
     overflow: hidden;
@@ -60,37 +61,24 @@
     margin: 0;
     font-size: var(--hero-display);
     font-weight: 430;
-    line-height: 0.95;
+    line-height: var(--hero-leading);
     letter-spacing: -0.035em;
     text-wrap: balance;
   }
 
-  .hero-title__mark {
-    background: var(--fin);
-    color: var(--ink);
-    padding: 0 0.1em;
-    border-radius: 4px;
-    -webkit-box-decoration-break: clone;
-    box-decoration-break: clone;
-  }
-
   .hero-roll {
-    margin: 0.2em 0 0;
+    margin: var(--hero-roll-gap) 0;
     font-size: var(--hero-display);
     font-weight: 430;
-    line-height: 0.95;
+    line-height: var(--hero-leading);
     letter-spacing: -0.035em;
-    color: var(--ink);
-  }
-
-  .hero-roll__lead {
-    display: block;
+    color: var(--fin);
   }
 
   .dropping-texts {
     position: relative;
     display: block;
-    color: var(--fin);
+    white-space: nowrap;
   }
 
   .dropping-texts__sizer {
@@ -151,7 +139,7 @@
   }
 
   .hero-sub {
-    margin: 24px 0 0;
+    margin: 0;
     font-size: 1.0625rem;
     line-height: 1.55;
     color: var(--ink-60);
