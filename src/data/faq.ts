@@ -6,15 +6,15 @@ export interface FaqItem {
 export const homeFaqs: FaqItem[] = [
   {
     q: "Do I have to be good on camera?",
-    a: "No. Crucible is built for normal people talking normally. The stumbles, restarts and “ums” are exactly what it removes.",
+    a: "No. Crucible is built for normal people talking normally — audio-only is fine. The stumbles, restarts and \"ums\" are exactly what it removes.",
   },
   {
     q: "How long does this actually take?",
-    a: "About ten minutes of talking. Your edited video, carousel slides, clips, and written posts are typically ready a few minutes after that.",
+    a: "About ten minutes of talking. Your edited clips, carousel slides, and written posts are typically ready a few minutes after that.",
   },
   {
     q: "Can I change what it writes?",
-    a: "All of it. Every post, caption and the blog draft is editable before it goes anywhere, and you can send the video back for a re-cut.",
+    a: "All of it. Every post, caption and the blog draft is editable before it goes anywhere, and you can send any clip back for a re-cut.",
   },
   {
     q: "Does it post for me?",
@@ -29,7 +29,7 @@ export const homeFaqs: FaqItem[] = [
     a: "It’s stored privately in your account and you can delete it whenever you want. See our privacy policy.",
   },
   {
-    q: "What’s free, exactly?",
-    a: "Your first project is free: every plan includes a single credit that covers one full campaign — the recording, the edited video, carousel slides, and the full set of posts. After that, Starter includes 4 campaigns a month and Pro includes 16.",
+    q: "What's free, exactly?",
+    a: "Your first project is free: every plan includes a single credit that covers one full campaign — the recording, edited clips, carousel slides, and the full set of posts. After that, Starter includes 4 campaigns a month and Pro includes 16.",
   },
 ];

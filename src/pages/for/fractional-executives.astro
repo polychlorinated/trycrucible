@@ -1,0 +1,79 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import PageHero from "../../components/PageHero.astro";
+import BenefitGrid from "../../components/BenefitGrid.astro";
+import Faq from "../../components/Faq.astro";
+import FinalCta from "../../components/FinalCta.astro";
+import Footer from "../../components/Footer.astro";
+import JsonLd from "../../components/JsonLd.astro";
+import type { FaqItem } from "../../data/faq";
+import { organizationSchema, webPageSchema, faqPageSchema } from "../../data/seo";
+
+const PAGE_URL = "https://trycrucible.com/for/fractional-executives/";
+const title = "For Fractional Executives — AI Content Creation & Ghostwriter Alternative | Crucible";
+const description =
+  "Fractional executives: build your personal brand and thought leadership in 10 minutes a week. Record your real voice and Crucible turns it into clips, carousel slides, deep dives, and posts that sound exactly like you.";
+
+const benefits = [
+  {
+    title: "Your voice, not a ghostwriter's",
+    body: "Crucible reworks your exact words and phrases from your real-time voice — the market hears you, not an agency's interpretation of you.",
+  },
+  {
+    title: "Ten minutes, once a week",
+    body: "The AI interviewer draws the ideas out of your head in a natural audio conversation. When you're serving multiple portfolios, recording beats writing.",
+  },
+  {
+    title: "A week of output per recording",
+    body: "60-second clips for LinkedIn, TikTok, and Shorts, carousel slides, a deep-dive, and written posts — all from one session in your real voice.",
+  },
+  {
+    title: "Authority that compounds across portfolios",
+    body: "Weekly presence is what turns the market's attention into trust — and trust into your next fractional engagement, advisory role, or board seat.",
+  },
+];
+
+const faqs: FaqItem[] = [
+  {
+    q: "I'm not a content creator. Will this really work for me?",
+    a: "That's exactly who it's built for. The AI interviewer asks the questions, so you just answer in your real voice. The stumbles, restarts, and 'ums' are cleaned up automatically.",
+  },
+  {
+    q: "How much time does it actually take?",
+    a: "About ten minutes of talking per campaign. The editing and writing happen from your transcript — no timeline, no desktop editing. Or upload a recent meeting recording — get the same quality output plus 9 minutes to grab a coffee or touch grass.",
+  },
+  {
+    q: "Will it sound like me, or like AI?",
+    a: "Like you. Your brand voice profile plus your exact spoken words drive every draft, and you can edit anything before it goes out. No AI analysis of your old writing samples — just your real-time real voice.",
+  },
+  {
+    q: "I serve multiple companies — can it keep up?",
+    a: "Yes. Upload your style guides and context documents and the knowledge base keeps your voice consistent as you scale your personal brand across every portfolio.",
+  },
+];
+---
+
+<Layout title={title} description={description}>
+  <Fragment slot="head">
+    <JsonLd data={organizationSchema()} />
+    <JsonLd data={webPageSchema(PAGE_URL, title, description)} />
+    <JsonLd data={faqPageSchema(faqs)} />
+  </Fragment>
+  <Header />
+  <main>
+    <PageHero
+      eyebrow="For fractional executives"
+      title="Thought leadership"
+      em="on your schedule."
+      lede="Your next engagement depends on being visible. Record a 10-minute brain dump in your real voice whenever inspiration strikes — Crucible turns it into clips, carousel slides, deep dives, and posts that sound exactly like you. No ghostwriter, no camera skills, no 10-hour content week."
+      ctaLabel="Start your first campaign free"
+      secondaryLabel="How it works"
+      secondaryHref="/how-it-works/"
+    />
+    <BenefitGrid eyebrow="Why fractional executives" title="Built for the person" em="building the brand." cards={benefits} />
+    <Faq id="faq" eyebrow="Fractional Executive FAQ" title="Fractional executives," em="answered." faqs={faqs} />
+    <FinalCta />
+  </main>
+  <Footer />
+</Layout>

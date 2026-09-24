@@ -83,7 +83,7 @@ export const comparisonHubs: ComparisonHub[] = [
     description:
       "Comparing Crucible against LinkedIn post editors, schedulers, and personal-branding writing tools.",
     hook:
-      "Most LinkedIn tools help you write faster — but you still face the blank page. Crucible skips the editor entirely: an AI interviewer captures your spoken insights and turns one recording into written posts, video clips, carousel slides, and deep dives in your own voice.",
+      "Most LinkedIn tools help you write faster — but you still face the blank page. Crucible skips the editor entirely: an AI interviewer captures your spoken insights and turns one recording into written posts, clips, carousel slides, and deep dives in your own voice.",
     audience:
       "Built for founders, consultants, and creators who want LinkedIn authority plus video, carousels, and written content across channels.",
     spokes: [
@@ -147,7 +147,7 @@ export const comparisons: Comparison[] = [
     pitch:
       "Pressmaster scales content creation with AI brand voice tools for marketing teams. Crucible provides a streamlined conversational engine that turns raw audio interviews into structured multi-format output.",
     rows: [
-      { dimension: "Core job", crucible: "Raw brain dump → video clips + carousels + deep dives + written posts", rival: "AI brand voice scaling & team content deployment" },
+      { dimension: "Core job", crucible: "Raw brain dump → clips + carousels + deep dives + written posts", rival: "AI brand voice scaling & team content deployment" },
       { dimension: "Input method", crucible: "Conversational AI video/audio interview", rival: "Text prompts, documents, and media uploads" },
       { dimension: "Editing engine", crucible: "Narrative-aware Preserve & Remix modes", rival: "AI brand voice assistant & multi-channel distributor" },
       { dimension: "Target audience", crucible: "Founders, experts, and lean marketing teams", rival: "Growth teams and marketing agencies" },
@@ -155,7 +155,7 @@ export const comparisons: Comparison[] = [
     ],
     differentiators: [
       { title: "Guided insight extraction", body: "Pressmaster helps communicate existing ideas through AI workflows. Crucible actively interviews you to draw out implicit expertise you didn't know you could articulate." },
-      { title: "Integrated video pipeline", body: "Pressmaster focuses on multi-channel messaging and brand voice consistency. Crucible natively processes video clips alongside long-form written assets." },
+      { title: "Integrated media pipeline", body: "Pressmaster focuses on multi-channel messaging and brand voice consistency. Crucible natively processes clips alongside long-form written assets." },
       { title: "Simplified campaign credits", body: "Crucible charges per complete content campaign, without managing complex agency seats or tiered feature access." },
     ],
     faqs: [
@@ -172,7 +172,7 @@ export const comparisons: Comparison[] = [
     description:
       "DraftAI turns voice notes into social text posts and scripts. Crucible turns raw audio into complete multi-media campaigns with publish-ready video.",
     pitch:
-      "DraftAI transforms brief voice notes into short social media text posts and video scripts. Crucible processes raw audio into complete multi-media campaigns containing video clips, carousel slides, deep-dive articles, and structured social posts.",
+      "DraftAI transforms brief voice notes into short social media text posts and video scripts. Crucible processes raw audio into complete multi-media campaigns containing clips, carousel slides, deep-dive articles, and structured social posts.",
     rows: [
       { dimension: "Core job", crucible: "Raw brain dump → clips + carousels + deep dives + written posts", rival: "Voice notes → social text posts & script drafts" },
       { dimension: "Video processing", crucible: "Direct narrative clipping & video rendering", rival: "Script generation only (no video editing)" },
@@ -182,13 +182,13 @@ export const comparisons: Comparison[] = [
     ],
     differentiators: [
       { title: "Interactive prompts", body: "DraftAI passively transcribes voice recordings. Crucible actively asks follow-up questions to pull out key details and counter-intuitive insights." },
-      { title: "End-to-end media output", body: "DraftAI provides text drafts and video scripts that still require separate video editing software. Crucible delivers publish-ready video clips directly." },
+      { title: "End-to-end media output", body: "DraftAI provides text drafts and video scripts that still require separate editing software. Crucible delivers publish-ready clips directly." },
       { title: "B2B market research", body: "Crucible includes market gap analysis on Pro to align your content with active industry conversations." },
     ],
     faqs: [
-      { q: "Is DraftAI cheaper than Crucible?", a: "DraftAI is $14.99/month for text posts and scripts from voice notes. Crucible starts at $49/month but delivers publish-ready video clips, carousel slides, and deep dives — not just text drafts." },
+      { q: "Is DraftAI cheaper than Crucible?", a: "DraftAI is $14.99/month for text posts and scripts from voice notes. Crucible starts at $49/month but delivers publish-ready clips, carousel slides, and deep dives — not just text drafts." },
       { q: "Can I record with my phone?", a: "Yes. Record in-app or upload video or audio from your device — Crucible processes either." },
-      { q: "Does Crucible write scripts?", a: "Crucible produces finished videos, carousel slides, and written posts. Scripting is an intermediate step the system handles for you, so you never face a blank script document." },
+      { q: "Does Crucible write scripts?", a: "Crucible produces finished clips, carousel slides, and written posts. Scripting is an intermediate step the system handles for you, so you never face a blank script document." },
     ],
   },
   {
@@ -237,7 +237,7 @@ export const comparisons: Comparison[] = [
     differentiators: [
       { title: "Personal branding", body: "StoryShort automates generic faceless videos. Crucible builds personal brand equity around real domain expertise." },
       { title: "Strategic depth", body: "StoryShort relies on prompt engineering to synthesize videos. Crucible uses structured research and an interactive interviewer to pull unique insights directly from the source." },
-      { title: "Channel coverage", body: "StoryShort is limited to short vertical video platforms. Crucible delivers video clips and carousel slides alongside written essays, newsletters, and text posts." },
+      { title: "Channel coverage", body: "StoryShort is limited to short vertical video platforms. Crucible delivers clips and carousel slides alongside written essays, newsletters, and text posts." },
     ],
     faqs: [
       { q: "Is faceless content bad?", a: "It works for some channels, but it can't build personal authority. Crucible builds brand equity around a real person — your face, your voice, your point of view." },
@@ -251,11 +251,11 @@ export const comparisons: Comparison[] = [
     hubSlug: "linkedin-growth-tools",
     title: "Crucible vs Oiti AI — Spoken voice vs written prompts | Crucible",
     description:
-      "Oiti AI generates written LinkedIn posts optimized for dwell time. Crucible captures spoken audio to produce video clips, carousel slides, and written content across channels.",
+      "Oiti AI generates written LinkedIn posts optimized for dwell time. Crucible captures spoken audio to produce clips, carousel slides, and written content across channels.",
     pitch:
-      "Oiti AI is an AI personal branding tool designed to generate written LinkedIn posts tailored to maximize dwell time. Crucible captures rich spoken audio to generate both written LinkedIn content, carousel slides, and ready-to-publish video clips.",
+      "Oiti AI is an AI personal branding tool designed to generate written LinkedIn posts tailored to maximize dwell time. Crucible captures rich spoken audio to generate both written LinkedIn content, carousel slides, and ready-to-publish clips.",
     rows: [
-      { dimension: "Core job", crucible: "Raw brain dump → video clips + carousels + written posts", rival: "Written LinkedIn post generation & dwell time optimization" },
+      { dimension: "Core job", crucible: "Raw brain dump → clips + carousels + written posts", rival: "Written LinkedIn post generation & dwell time optimization" },
       { dimension: "Media support", crucible: "Video clips, carousels, audio processing, and written posts", rival: "Written posts and infographics" },
       { dimension: "Input source", crucible: "Interactive video/audio AI interview", rival: "Topic inputs, research trends, and text prompts" },
       { dimension: "Pricing", crucible: "$49/mo Starter · $149/mo Pro", rival: "Creator: $49/mo ($245/yr) · Pro: $79/mo ($395/yr)" },
@@ -266,7 +266,7 @@ export const comparisons: Comparison[] = [
       { title: "Multi-platform reach", body: "Crucible generates assets for newsletters, blogs, and video channels — expanding reach beyond LinkedIn-only distribution." },
     ],
     faqs: [
-      { q: "Is Crucible a LinkedIn writing tool?", a: "LinkedIn writing is one output. Crucible also produces video clips, carousels, deep dives, and newsletters from the same recording — LinkedIn is a destination, not the whole system." },
+      { q: "Is Crucible a LinkedIn writing tool?", a: "LinkedIn writing is one output. Crucible also produces clips, carousels, deep dives, and newsletters from the same recording — LinkedIn is a destination, not the whole system." },
       { q: "Does Crucible optimize for the LinkedIn algorithm?", a: "Crucible optimizes for authentic voice and narrative. Pro includes social research — competitor and topic tracking — to show where you can weigh in." },
       { q: "Can I write posts manually in Crucible?", a: "Yes. Every draft is editable before it goes anywhere, and you can publish straight from the dashboard." },
     ],
@@ -343,11 +343,11 @@ export const comparisons: Comparison[] = [
     ],
     differentiators: [
       { title: "Ideation vs assembly", body: "Descript requires a finished recording to edit. Crucible's AI interviewer draws the ideas out of your head to create the raw material." },
-      { title: "Multi-format campaigns", body: "Descript outputs media files. Crucible turns one recording into a full week of written LinkedIn posts, newsletters, carousels, and video clips." },
+      { title: "Multi-format campaigns", body: "Descript outputs media files. Crucible turns one recording into a full week of written LinkedIn posts, newsletters, carousels, and clips." },
       { title: "Predictable billing", body: "Descript relies on a complex dual-currency system (Media Hours + AI Credits) that makes monthly costs unpredictable. Crucible operates on a simple per-campaign basis." },
     ],
     faqs: [
-      { q: "Is Descript an editor or a content system?", a: "An editor — you bring finished media and edit it via the transcript. Crucible creates the media first, then offers the same interaction: click any word in the transcript to cut it and the video re-renders." },
+      { q: "Is Descript an editor or a content system?", a: "An editor — you bring finished media and edit it via the transcript. Crucible creates the media first, then offers the same interaction: click any word in the transcript to cut it and the clip re-renders." },
       { q: "Can I bring my Descript workflows to Crucible?", a: "If you already record podcasts or videos, upload them to Crucible and it will process them into clips, carousels, and written posts with your brand voice profile." },
       { q: "How does billing compare?", a: "Descript bills media hours plus AI credits. Crucible bills per campaign: 4/month on Starter, 16/month on Pro, with single credits at $19." },
     ],
@@ -429,7 +429,7 @@ export const comparisons: Comparison[] = [
     ],
     faqs: [
       { q: "Is VEED a Crucible competitor?", a: "Only if you want a general-purpose editor. VEED is a great toolbox; Crucible automates the campaign pipeline end to end so you don't have to assemble anything." },
-      { q: "Can I do manual edits in Crucible?", a: "Yes — text-based polishing: click any transcript word to cut it, approve or rewrite every draft, and send the video back for a re-cut." },
+      { q: "Can I do manual edits in Crucible?", a: "Yes — text-based polishing: click any transcript word to cut it, approve or rewrite every draft, and send any clip back for a re-cut." },
       { q: "Does Crucible do dubbing or translation?", a: "No — that's VEED's specialty. Crucible focuses on native content creation: your voice, your words, your week of output." },
     ],
   },
@@ -441,9 +441,9 @@ export const comparisons: Comparison[] = [
     description:
       "Workflows.io delivers done-for-you LinkedIn content from $4,000/month with bi-weekly interviews. Crucible turns one recording into clips, carousels, deep dives, and posts in minutes for $49/month.",
     pitch:
-      "Workflows.io is an AI-native GTM services agency. Its Content Engine delivers done-for-you LinkedIn thought leadership — 2-3 posts per week per profile, with graphic design, distribution, and bi-weekly interviews — starting at $4,000/month on quarterly commitments. Crucible is a self-serve engine that interviews you and turns a single recording into video clips, carousel slides, deep-dive videos, and written posts in minutes.",
+      "Workflows.io is an AI-native GTM services agency. Its Content Engine delivers done-for-you LinkedIn thought leadership — 2-3 posts per week per profile, with graphic design, distribution, and bi-weekly interviews — starting at $4,000/month on quarterly commitments. Crucible is a self-serve engine that interviews you and turns a single recording into clips, carousel slides, deep-dives, and written posts in minutes.",
     rows: [
-      { dimension: "Core job", crucible: "Raw brain dump → video clips, carousels, deep dives & written posts", rival: "Done-for-you LinkedIn posts — 2-3 per week per profile" },
+      { dimension: "Core job", crucible: "Raw brain dump → clips, carousels, deep dives & written posts", rival: "Done-for-you LinkedIn posts — 2-3 per week per profile" },
       { dimension: "Delivery model", crucible: "Self-serve software — record whenever you want", rival: "Services agency — bi-weekly interviews & quarterly commitment" },
       { dimension: "Turnaround", crucible: "Minutes after you stop recording", rival: "Posts land on the agency's content calendar" },
       { dimension: "Outputs", crucible: "Video clips, carousel slides, deep dives, written posts", rival: "LinkedIn posts with done-for-you graphic design" },
@@ -456,7 +456,7 @@ export const comparisons: Comparison[] = [
       { title: "Your exact words vs agency copy", body: "Crucible reworks your own recorded words into publish-ready assets, keeping your voice intact. With an agency, a writer interprets your POV — you approve, but the words aren't yours." },
     ],
     faqs: [
-      { q: "Is Workflows.io a Crucible competitor?", a: "Partially. Workflows.io's Content Engine is a done-for-you LinkedIn service: 2-3 weekly posts per profile with graphic design, distribution, and bi-weekly interviews, from $4,000/month. Crucible is self-serve software that turns your own recordings into video clips, carousels, deep dives, and written posts. They overlap on building founder authority — the difference is who does the work and what it costs." },
+      { q: "Is Workflows.io a Crucible competitor?", a: "Partially. Workflows.io's Content Engine is a done-for-you LinkedIn service: 2-3 weekly posts per profile with graphic design, distribution, and bi-weekly interviews, from $4,000/month. Crucible is self-serve software that turns your own recordings into clips, carousels, deep dives, and written posts. They overlap on building founder authority — the difference is who does the work and what it costs." },
       { q: "What do I actually get for $4,000/month?", a: "Per their site, the Content Engine covers 2-3 weekly LinkedIn posts per profile, done-for-you graphic design, LinkedIn distribution, and bi-weekly interviews — on a quarterly commitment. Crucible delivers a comparable week of assets (clips, carousels, deep dives, and posts) minutes after you record, for $49/month." },
       { q: "Workflows.io also does outbound, RevOps, and ABM. Does Crucible?", a: "No — Crucible focuses on authority content, not outbound sequences, CRM ops, or account-based campaigns. If you need a full GTM agency stack, Workflows.io and Crucible are complementary rather than competing." },
     ],

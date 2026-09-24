@@ -1,13 +1,13 @@
 ---
 title: "Tools vs. System: Why Crucible Is the Answer the Market Has Been Missing"
-description: "The stack isn't the problem. Raw recordings beat tool stacks — and Crucible is the system that turns a founder's brain dump into shipped content in their own voice."
+description: "The stack isn't the problem. Raw recordings beat tool stacks — and Crucible is the AI content creation system and ghostwriter alternative that turns a founder's brain dump into shipped content in their own voice."
 publishDate: 2026-08-22
 author: "Andrew Campbell"
 tags:
   - "founder content"
   - "content system"
   - "personal brand"
-  - "video marketing"
+  - "automated content creation"
 heroImage: "/blog-images/tools-vs-system-image.webp"
 heroImageAlt: "Tools versus system: a founder's raw recording processed into finished content with Crucible"
 ---
