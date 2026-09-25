@@ -1,3 +1,15 @@
+---
+title: "The Audition That Revealed Why I Built Crucible"
+description: "I bombed an audition reading and learned exactly why founders freeze on camera — and why Crucible is built to capture your real voice without the performance anxiety."
+publishDate: 2026-09-25
+author: "Andrew Campbell"
+tags:
+  - "founder content"
+  - "personal brand"
+  - "authentic voice"
+  - "behind the scenes"
+---
+
 # The Audition That Revealed Why I Built Crucible
 
 ## I Bombed a Reading, and It Taught Me Everything
