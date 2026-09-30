@@ -29,6 +29,14 @@ export const homeFaqs: FaqItem[] = [
     a: "It’s stored privately in your account and you can delete it whenever you want. See our privacy policy.",
   },
   {
+    q: "How does Crucible help with content research and planning?",
+    a: "Through Research & Plan. Instead of staring at a blank screen or paying content creation agencies thousands for opaque research, Crucible acts as a lab for what to say next. It tracks competitor gaps, subreddit discussions, and market green space, matching them to your editorial backlog and prep questions so you always record with high-leverage talking points.",
+  },
+  {
+    q: "How do I know this won't sound like generic AI slop?",
+    a: "Crucible never invents content from blank text prompts. It takes your real spoken voice, transcribes your exact words, and shapes your spoken arguments into carousels on LinkedIn, clips, and long-form articles. Every output maintains verbatim lineage back to what you said on mic. If you didn’t say it, Crucible doesn’t draft it.",
+  },
+  {
     q: "What's free, exactly?",
     a: "Your first project is free: every plan includes a single credit that covers one full campaign — the recording, edited clips, carousel slides, and the full set of posts. After that, Starter includes 4 campaigns a month and Pro includes 16.",
   },

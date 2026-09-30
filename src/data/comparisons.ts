@@ -93,16 +93,16 @@ export const comparisonHubs: ComparisonHub[] = [
   },
   {
     slug: "ghostwriters",
-    name: "Agency & Ghostwriter Alternatives",
-    title: "Crucible vs. ghostwriters & agencies | Crucible",
+    name: "Ghostwriting & Content Agency Alternatives",
+    title: "Crucible vs. Ghostwriting Services & Content Agencies | Crucible",
     description:
-      "Comparing Crucible against ghostwriting agencies and high-touch personal branding services.",
+      "Compare Crucible against freelance ghostwriters, ghostwriting services, and content creation agencies — side by side on speed, voice, and pricing.",
     hook:
-      "Agencies charge thousands a month and take days to turn drafts. Crucible interviews you like an agency would — then delivers the week's clips, carousels, posts, and deep dives instantly, for a fraction of the cost.",
+      "Ghostwriting agencies charge thousands a month and take days to turn drafts. Crucible includes built-in content research and AI interviews — delivering the week's clips, carousels on LinkedIn, deep dives, and articles instantly, for a fraction of the cost.",
     audience:
-      "Built for founders and executives weighing an agency retainer against an automated content engine.",
+      "Built for founders and executives weighing an agency retainer against an automated content creation engine.",
     spokes: [
-      { name: "Ghostwriters", href: "/vs/ghostwriters/", pitch: "Human writers at $2,000–$5,000/month." },
+      { name: "Ghostwriters", href: "/vs/ghostwriters/", pitch: "Freelance ghostwriters and agencies at $2,000–$5,000/month." },
       { name: "Avium", href: "/vs/avium/", pitch: "Personal branding agency for world-class experts." },
       { name: "Workflows.io", href: "/vs/workflows-io/", pitch: "AI-native GTM agency; LinkedIn content from $4k/mo." },
     ],

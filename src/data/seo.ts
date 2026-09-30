@@ -37,7 +37,7 @@ export function softwareApplicationSchema() {
     "@type": "SoftwareApplication",
     name: "Crucible",
     description:
-      "Crucible turns a 10-minute recording into a week of content: clips, carousel slides, deep dives, and multi-channel written posts in your own real voice.",
+      "Crucible turns a 10-minute recording into a week of content: carousels on LinkedIn, clips, deep dives, and articles in your own real voice.",
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
     url: `${SITE_URL}/`,
@@ -56,7 +56,7 @@ export function softwareApplicationSchema() {
         price: "149",
         priceCurrency: "USD",
         description:
-          "16 complete campaigns per month with Social Research & Competitor Gap Engine and priority video processing.",
+          "16 complete campaigns per month with Research & Plan (Market Signals & Gap Engine) and priority processing.",
       },
     ],
   };
